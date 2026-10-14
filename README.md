@@ -17,4 +17,4 @@
 
 ## 브랜드
 
-- **[bellink 로고](brand/logo/README.md)**: 2차 시안 3가지 방향(아치·세리프 도어·모듈 b)과 1차 시안, SVG·PNG 파일, 색상
+- **[bellink 브랜드 아이덴티티](brand/logo/README.md)**: 최종 로고 시스템(세리프 도어), 브랜드 가이드 PDF, SVG·PNG·파비콘, 이전 시안
