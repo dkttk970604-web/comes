@@ -200,56 +200,51 @@ def hslice(g, y, h=0.6):
 
 
 # ---------------------------------------------------------------- wordmark ---
+# 두 l은 그대로 두어 bellink로 또렷하게 읽히게 하고, 그 사이에 샴페인색 아치(문)를 넣습니다.
 # 기본형(큰 크기)과 소형(작은 크기)은 Fraunces의 광학 크기(opsz)만 다르고 구조는 같습니다.
-DISPLAY = dict(opsz=144, wght=440, track=0.008, gap=9.0, door_rise=11.4, hair=2.8, k_out=0.58, k_in=0.65)
-SMALL = dict(opsz=36, wght=470, track=0.02, gap=10.0, door_rise=11.4, hair=4.2, k_out=0.58, k_in=0.65)
+#   gap: 두 l 사이를 벌리는 양, inset: 기둥과 문 사이 틈, door: 문 높이(어센더 대비 비율)
+DISPLAY = dict(opsz=144, wght=440, track=0.008, gap=11.0, inset=3.0, door=0.735)
+SMALL = dict(opsz=36, wght=470, track=0.02, gap=12.0, inset=3.4, door=0.735)
 
 
 def wordmark_parts(spec=DISPLAY, size=100):
-    """(본체, ll 문, i의 점). 기준선 y=0, 크기 100 기준 좌표를 size로 비례 조정."""
+    """(본체, 두 l 기둥, 문). 기준선 y=0, 크기 100 기준 좌표를 size로 비례 조정."""
     var = {'wght': spec['wght'], 'opsz': spec['opsz'], 'SOFT': 0, 'WONK': 0}
     g = glyph_paths(FRAUNCES, 'bellink', 100, var, spec['track'], extra={2: spec['gap']})
     l1, l2 = g[2], g[3]
     asc = l1.bounds[1]
     s1, s2 = hslice(l1, asc * 0.4), hslice(l2, asc * 0.4)
-    sw = s1[1] - s1[0]
-    xl, xr = s1[0], s2[1]
-    ro, cx = (xr - xl) / 2, (xl + xr) / 2
-    top = asc - spec['door_rise']          # 문 꼭대기는 어센더보다 조금 높게
-    ys = top + ro                          # 아치가 시작되는 높이
-    cut = asc * 0.78                       # l의 윗 세리프를 잘라내는 높이
-    below = rect(-1e4, cut, 1e4, 1e4)
-    legs = union(inter(l1, below), inter(l2, below),
-                 rect(xl, ys, xl + sw, cut + 0.5), rect(xr - sw, ys, xr, cut + 0.5))
-    arc = inter(diff(oval(cx, ys, ro, ro, spec['k_out']), oval(cx, ys, ro - sw, ro - spec['hair'], spec['k_in'])),
-                rect(-1e4, -1e4, 1e4, ys + 0.01))
-    door = union(legs, arc)
-    i_body, i_dot = split_i_dot(g[4])
-    body = union(*[gg for i, gg in enumerate(g) if i not in (2, 3, 4)], i_body)
-    x0 = union(body, door, i_dot).bounds[0]
-    s = size / 100
-    return [move(p, -x0 * s, 0, s) for p in (body, door, i_dot)]
+    # 문 쪽 아래 세리프를 잘라 기둥(문틀)처럼 정리
+    l1 = diff(l1, rect(s1[1], asc * 0.3, 1e4, 1e4))
+    l2 = diff(l2, rect(-1e4, asc * 0.3, s2[0], 1e4))
+    pillars = union(l1, l2)
+    x0, x1 = s1[1] + spec['inset'], s2[0] - spec['inset']
+    door = arch(x0, x1 - x0, -asc * spec['door'], base=0)
+    body = union(*[gg for i, gg in enumerate(g) if i not in (2, 3)])
+    left = union(body, pillars).bounds[0]
+    k = size / 100
+    return [move(p, -left * k, 0, k) for p in (body, pillars, door)]
 
 
 def wordmark_metrics(spec=DISPLAY, size=100):
     """가이드 도면용 기준선들."""
     var = {'wght': spec['wght'], 'opsz': spec['opsz'], 'SOFT': 0, 'WONK': 0}
     g = glyph_paths(FRAUNCES, 'bellink', 100, var, spec['track'], extra={2: spec['gap']})
-    s = size / 100
-    body, door, dot = wordmark_parts(spec, size)
+    k = size / 100
+    body, pillars, door = wordmark_parts(spec, size)
     return {
-        'ascender': g[0].bounds[1] * s,
-        'xheight': g[5].bounds[1] * s,     # n의 높이
+        'ascender': g[0].bounds[1] * k,
+        'xheight': g[5].bounds[1] * k,     # n의 높이
         'door_top': door.bounds[1],
         'door': door.bounds,
-        'dot': dot.bounds,
-        'width': union(body, door, dot).bounds[2],
+        'pillars': pillars.bounds,
+        'width': union(body, pillars, door).bounds[2],
     }
 
 
 def colorize(parts, fg, accent):
-    body, door, dot = parts
-    return [(body, fg), (door, fg), (dot, accent)]
+    body, pillars, door = parts
+    return [(body, fg), (pillars, fg), (door, accent)]
 
 
 def wordmark(fg=INK, accent=CHAMPAGNE, spec=DISPLAY, size=100):
@@ -304,21 +299,16 @@ def lockup_korean(fg=INK, accent=CHAMPAGNE, size=100):
 
 # ----------------------------------------------------------- monogram ---
 def monogram_parts(h=100, spec=DISPLAY):
-    """ll 합자의 문과, 문 안의 샴페인색 점(문 너머의 빛 = best)."""
-    _, door, dot = wordmark_parts(spec, 100)
-    x0, y0, x1, y1 = door.bounds
-    d = dot.bounds
-    r = (d[2] - d[0]) / 2 * 1.08
-    # 아치 원의 중심 높이(문 꼭대기 + 반지름)에 점을 놓음
-    legs_w = x1 - x0
-    sun = circle((x0 + x1) / 2, y0 + legs_w * 0.5 + r * 0.2, r)
-    s = h / (y1 - y0)
-    return move(door, -x0 * s, -y0 * s, s), move(sun, -x0 * s, -y0 * s, s)
+    """워드마크의 두 l 기둥과 그 사이 문만 떼어 낸 모노그램. (기둥, 문)을 높이 h로."""
+    _, pillars, door = wordmark_parts(spec, 100)
+    x0, y0, x1, y1 = union(pillars, door).bounds
+    k = h / (y1 - y0)
+    return move(pillars, -x0 * k, -y0 * k, k), move(door, -x0 * k, -y0 * k, k)
 
 
 def monogram(fg=INK, accent=CHAMPAGNE, h=100):
-    door, sun = monogram_parts(h)
-    return [(door, fg), (sun, accent)]
+    pillars, door = monogram_parts(h)
+    return [(pillars, fg), (door, accent)]
 
 
 # ------------------------------------------------------------- emblem ---
@@ -367,25 +357,26 @@ def emblem(fg=INK, accent=CHAMPAGNE, d=200):
     top = text_on_arc('BELLINK', JOST, d * 0.075, {'wght': 430}, c, c, r_text, tracking=0.42)
     bottom = text_on_arc('TRAVEL · STAY · ESTATE', JOST, d * 0.054, {'wght': 430}, c, c, r_text, tracking=0.22, bottom=True)
     dots = union(circle(c - r_text, c, d * 0.009), circle(c + r_text, c, d * 0.009))
-    door, sun = monogram_parts(d * 0.34)
-    db = door.bounds
-    off = (c - (db[0] + db[2]) / 2, c - (db[1] + db[3]) / 2)
-    door, sun = move(door, *off), move(sun, *off)
-    return [(ring_outer, fg), (ring_inner, fg), (top, fg), (bottom, fg), (dots, accent), (door, fg), (sun, accent)]
+    pillars, door = monogram_parts(d * 0.33)
+    mb = union(pillars, door).bounds
+    off = (c - (mb[0] + mb[2]) / 2, c - (mb[1] + mb[3]) / 2)
+    pillars, door = move(pillars, *off), move(door, *off)
+    return [(ring_outer, fg), (ring_inner, fg), (top, fg), (bottom, fg), (dots, accent), (pillars, fg), (door, accent)]
 
 
 # ------------------------------------------------------------ app icon ---
 def app_icon(size=1024):
-    door, sun = monogram_parts(size * 0.56)
-    db = door.bounds
-    off = ((size - (db[2] - db[0])) / 2 - db[0], (size - (db[3] - db[1])) / 2 - db[1] + size * 0.01)
-    return [(move(door, *off), IVORY), (move(sun, *off), CHAMPAGNE)]
+    pillars, door = monogram_parts(size * 0.56)
+    mb = union(pillars, door).bounds
+    off = ((size - (mb[2] - mb[0])) / 2 - mb[0], (size - (mb[3] - mb[1])) / 2 - mb[1])
+    return [(move(pillars, *off), IVORY), (move(door, *off), CHAMPAGNE)]
 
 
 def favicon_small():
-    """16·32·48px 전용 단순화 모노그램. 16px 픽셀 격자에 맞춘 굵은 문과 큰 점."""
-    door = diff(arch(4, 8, 12, base=14), union(arch(6, 4, 10, base=14.5)))
-    return [(rect(0, 0, 16, 16), INK), (door, IVORY), (circle(8, 7.6, 1.35), CHAMPAGNE)]
+    """16·32·48px 전용 단순화 모노그램. 16px 픽셀 격자에 맞춘 두 기둥과 그 사이 문."""
+    pillars = union(rect(3, 2, 5, 14), rect(11, 2, 13, 14))
+    door = arch(6, 4, 9, base=14)
+    return [(rect(0, 0, 16, 16), INK), (pillars, IVORY), (door, CHAMPAGNE)]
 
 
 # ------------------------------------------------------------- pattern ---
@@ -446,16 +437,16 @@ def construction_svg():
     m = wordmark_metrics(DISPLAY, 100)
     items = wordmark()
     w = m['width']
-    lines = [('BASELINE', 0), ('X-HEIGHT', m['xheight']), ('ASCENDER', m['ascender']), ('DOOR', m['door_top'])]
-    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 {m["door_top"] - 22:.1f} {w + 70:.1f} {-m["door_top"] + 36:.1f}" width="100%">']
+    lines = [('BASELINE', 0), ('X-HEIGHT', m['xheight']), ('DOOR', m['door_top']), ('ASCENDER', m['ascender'])]
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 {m["ascender"] - 22:.1f} {w + 70:.1f} {-m["ascender"] + 36:.1f}" width="100%">']
     for label, y in lines:
         out.append(f'<line x1="-14" x2="{w + 8:.1f}" y1="{y:.2f}" y2="{y:.2f}" stroke="{CHAMPAGNE}" stroke-width="0.28" stroke-dasharray="1.2 1.2"/>')
         out.append(f'<text x="{w + 11:.1f}" y="{y + 1.1:.2f}" font-family="J" font-size="3" letter-spacing="0.5" fill="#8A8074">{label}</text>')
     out.append(_paths(items))
+    p0, p1 = m['pillars'][0], m['pillars'][2]
     d0, d1 = m['door'][0], m['door'][2]
-    dot = m['dot']
-    marks = [(1, ((d0 + d1) / 2, m['door_top'] - 9)), (2, ((dot[0] + dot[2]) / 2 + 9, (dot[1] + dot[3]) / 2 - 7)),
-             (3, (d0 - 8, m['door_top'] + 3))]
+    marks = [(1, ((p0 + p1) / 2, m['ascender'] - 10)), (2, ((d0 + d1) / 2, (m['door_top'] + 0) / 2 + 4)),
+             (3, (-8, m['door_top']))]
     for n, (x, y) in marks:
         out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.3" fill="{IVORY}" stroke="{INK}" stroke-width="0.35"/>'
                    f'<text x="{x:.1f}" y="{y + 1.25:.1f}" text-anchor="middle" font-family="J" font-size="3.6" fill="{INK}">{n}</text>')
@@ -565,7 +556,7 @@ def main():
     }
     with open(f'{BUILD_DIR}/misuse-plain.svg', 'w') as f:
         f.write(plain_svg())
-    with open(f'{BUILD_DIR}/misuse-dot.svg', 'w') as f:
+    with open(f'{BUILD_DIR}/misuse-color.svg', 'w') as f:
         f.write(svg_doc(wordmark(INK, '#2F6FE4'))[0])
     for k, v in repl.items():
         tpl = tpl.replace(k, v)
