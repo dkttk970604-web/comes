@@ -1,0 +1,122 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: P; src: url("file://{{FONT_DIR}}/Pretendard-Regular.otf"); font-weight: 400; }
+@font-face { font-family: P; src: url("file://{{FONT_DIR}}/Pretendard-SemiBold.otf"); font-weight: 600; }
+@font-face { font-family: J; src: url("file://{{FONT_DIR}}/Jost[wght].ttf"); font-weight: 100 900; }
+@font-face { font-family: Fr; src: url("file://{{FONT_DIR}}/Fraunces[SOFT,WONK,opsz,wght].ttf"); font-weight: 100 900; }
+* { box-sizing: border-box; margin: 0; }
+body { width: 1600px; background: #EEE9E1; color: #23211E; font-family: J, P, sans-serif; padding: 80px 72px 90px; }
+.eyebrow { font: 500 13px J; letter-spacing: .32em; text-transform: uppercase; color: #8A8074; }
+h1 { font: italic 300 38px/1.2 Fr; font-variation-settings: "opsz" 144; color: #8A8074; margin-top: 18px; }
+h1 span { font: 600 46px P; font-style: normal; color: #23211E; letter-spacing: -.02em; }
+.lead { font: 400 18px/1.6 P; color: #5E574E; margin-top: 14px; }
+.dir { margin-top: 84px; }
+.head { display: grid; grid-template-columns: 90px 1fr 360px; align-items: end; border-top: 1px solid #CFC6B8; padding-top: 22px; margin-bottom: 22px; }
+.num { font: 300 46px/1 J; color: #9C9184; }
+.head h2 { font: 600 30px P; letter-spacing: -.02em; }
+.head h2 em { font: italic 400 28px Fr; color: #8A8074; margin-left: 8px; }
+.head p { font: 400 16px/1.6 P; color: #5E574E; margin-top: 8px; max-width: 760px; }
+.kw { font: 500 12px J; letter-spacing: .24em; text-transform: uppercase; color: #8A8074; text-align: right; }
+.row { display: grid; gap: 16px; margin-top: 16px; }
+.r1 { grid-template-columns: 1.6fr 1fr; height: 360px; }
+.r2 { grid-template-columns: 1.6fr .62fr .78fr; height: 340px; }
+.tile { border-radius: 6px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.tile .lbl { position: absolute; left: 20px; bottom: 16px; font: 500 11px J; letter-spacing: .22em; text-transform: uppercase; opacity: .55; }
+.card { position: absolute; width: 380px; height: 211px; border-radius: 4px; box-shadow: 0 28px 50px rgba(30,25,20,.22), 0 6px 14px rgba(30,25,20,.14);
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>"); }
+.card.back { left: 54px; top: 42px; transform: rotate(-5deg); padding: 26px 30px; }
+.card.front { left: 318px; top: 96px; transform: rotate(4deg); display: flex; align-items: center; justify-content: center; }
+.card .who { position: absolute; left: 30px; bottom: 26px; }
+.card .who b { display: block; font: 600 15px P; letter-spacing: .02em; }
+.card .who span { font: 400 11px P; opacity: .7; }
+.card .tag { position: absolute; right: 30px; bottom: 28px; font: 500 9px J; letter-spacing: .26em; text-transform: uppercase; opacity: .7; }
+.icons { display: flex; gap: 26px; align-items: center; }
+.app { width: 132px; height: 132px; border-radius: 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 14px 30px rgba(30,25,20,.18); }
+.avatar { width: 132px; height: 132px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 14px 30px rgba(30,25,20,.12); }
+.palette { display: grid; grid-template-rows: repeat(4, 1fr); padding: 0; align-items: stretch; justify-content: stretch; }
+.chip { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 20px 12px; font: 500 12px J; letter-spacing: .08em; }
+.chip b { font: 600 14px P; letter-spacing: 0; }
+.foot { margin-top: 70px; border-top: 1px solid #CFC6B8; padding-top: 20px; font: 400 14px/1.7 P; color: #7A7268; }
+</style></head><body>
+<div class="eyebrow">bellink · Logo Proposal 02</div>
+<h1><span>더 감각적인 세 가지 방향</span> · A more refined direction</h1>
+<div class="lead">best(최고) + link(연결) · 여행, 숙박, 부동산 투자를 잇는 회사. 부티크 호텔과 라이프스타일 브랜드의 언어로 다시 그렸습니다.</div>
+
+<!-- 01 ARCH -->
+<section class="dir">
+  <div class="head"><div class="num">01</div>
+    <div><h2>아치<em>Arch</em></h2><p>두 개의 둥근 문이 겹치면, 그 사이에 뾰족한 정점의 창이 생기고 빛이 듭니다. 여행의 문과 집의 문이 만나는 &lsquo;최고의 연결&rsquo;.</p></div>
+    <div class="kw">Boutique stay · Warm · Natural</div></div>
+  <div class="row r1">
+    <div class="tile" style="background:#1F3A32;color:#F4EFE7"><img src="file://{{OUT}}/01-arch/bellink-01-arch-logo-white.svg" style="height:118px"><span class="lbl">Primary · on forest</span></div>
+    <div class="tile" style="background:#F4EFE7;color:#1F3A32"><img src="file://{{OUT}}/01-arch/bellink-01-arch-logo.svg" style="height:76px"><span class="lbl">On ivory</span></div>
+  </div>
+  <div class="row r2">
+    <div class="tile" style="background:#CDBFA8">
+      <div class="card back" style="background-color:#F4EFE7;color:#1F3A32"><img src="file://{{OUT}}/01-arch/bellink-01-arch-logo.svg" style="height:30px"><div class="who"><b>홍길동</b><span>대표 · Representative</span></div><div class="tag">Travel · Stay · Estate</div></div>
+      <div class="card front" style="background-color:#1F3A32"><img src="file://{{OUT}}/01-arch/bellink-01-arch-symbol-white.svg" style="height:86px"></div>
+      <span class="lbl" style="color:#1F3A32">Business card</span></div>
+    <div class="tile" style="background:#E3D8C6"><div class="icons" style="flex-direction:column;gap:18px">
+      <div class="app" style="background:#1F3A32"><img src="file://{{OUT}}/01-arch/bellink-01-arch-symbol-white.svg" style="height:62px"></div>
+      <div style="font:500 11px J;letter-spacing:.2em;color:#1F3A32;opacity:.6">APP ICON</div></div></div>
+    <div class="tile palette">
+      <div class="chip" style="background:#1F3A32;color:#F4EFE7"><b>Forest</b>#1F3A32</div>
+      <div class="chip" style="background:#C9734F;color:#F4EFE7"><b>Clay</b>#C9734F</div>
+      <div class="chip" style="background:#E3D8C6;color:#1F3A32"><b>Sand</b>#E3D8C6</div>
+      <div class="chip" style="background:#F4EFE7;color:#1F3A32"><b>Ivory</b>#F4EFE7</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SERIF -->
+<section class="dir">
+  <div class="head"><div class="num">02</div>
+    <div><h2>세리프 도어<em>Serif door</em></h2><p>bellink의 두 l을 하나의 아치형 문으로 이었습니다. 글자 자체가 &lsquo;연결&rsquo;이 되고, 샴페인색 점은 문 너머의 &lsquo;최고&rsquo;를 뜻합니다.</p></div>
+    <div class="kw">Luxury · Editorial · Timeless</div></div>
+  <div class="row r1">
+    <div class="tile" style="background:#1C1B19;color:#F4EFE7"><img src="file://{{OUT}}/02-serif/bellink-02-serif-logo-white.svg" style="height:112px"><span class="lbl">Primary · on ink</span></div>
+    <div class="tile" style="background:#F4EFE7;color:#1C1B19"><img src="file://{{OUT}}/02-serif/bellink-02-serif-logo.svg" style="height:70px"><span class="lbl">On ivory</span></div>
+  </div>
+  <div class="row r2">
+    <div class="tile" style="background:#D9D2C5">
+      <div class="card back" style="background-color:#FBF8F2;color:#1C1B19"><img src="file://{{OUT}}/02-serif/bellink-02-serif-logo.svg" style="height:28px"><div class="who"><b>홍길동</b><span>대표 · Representative</span></div><div class="tag">Travel · Stay · Estate</div></div>
+      <div class="card front" style="background-color:#1C1B19"><img src="file://{{OUT}}/02-serif/bellink-02-serif-symbol-white.svg" style="height:92px"></div>
+      <span class="lbl" style="color:#1C1B19">Business card</span></div>
+    <div class="tile" style="background:#E8E1D5"><div class="icons" style="flex-direction:column;gap:18px">
+      <div class="app" style="background:#1C1B19"><img src="file://{{OUT}}/02-serif/bellink-02-serif-symbol-white.svg" style="height:70px"></div>
+      <div style="font:500 11px J;letter-spacing:.2em;color:#1C1B19;opacity:.6">APP ICON</div></div></div>
+    <div class="tile palette">
+      <div class="chip" style="background:#1C1B19;color:#F4EFE7"><b>Ink</b>#1C1B19</div>
+      <div class="chip" style="background:#B8976A;color:#1C1B19"><b>Champagne</b>#B8976A</div>
+      <div class="chip" style="background:#D9D2C5;color:#1C1B19"><b>Stone</b>#D9D2C5</div>
+      <div class="chip" style="background:#F4EFE7;color:#1C1B19"><b>Ivory</b>#F4EFE7</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 MODULAR -->
+<section class="dir">
+  <div class="head"><div class="num">03</div>
+    <div><h2>모듈 b<em>Modular b</em></h2><p>아치(숙박), 사각 블록(부동산), 해(여행) 세 조각이 맞물려 bellink의 b가 됩니다. 세 사업이 하나로 연결된 회사.</p></div>
+    <div class="kw">Modern · Playful · Bold</div></div>
+  <div class="row r1">
+    <div class="tile" style="background:#1E5B57;color:#F3ECE0"><img src="file://{{OUT}}/03-modular/bellink-03-modular-logo-white.svg" style="height:112px"><span class="lbl">Primary · on teal</span></div>
+    <div class="tile" style="background:#F3ECE0;color:#1D1D1B"><img src="file://{{OUT}}/03-modular/bellink-03-modular-logo.svg" style="height:72px"><span class="lbl">On cream</span></div>
+  </div>
+  <div class="row r2">
+    <div class="tile" style="background:#E9B95A">
+      <div class="card back" style="background-color:#F3ECE0;color:#1D1D1B"><img src="file://{{OUT}}/03-modular/bellink-03-modular-logo.svg" style="height:30px"><div class="who"><b>홍길동</b><span>대표 · Representative</span></div><div class="tag">Travel · Stay · Estate</div></div>
+      <div class="card front" style="background-color:#1E5B57"><img src="file://{{OUT}}/03-modular/bellink-03-modular-symbol-white.svg" style="height:92px"></div>
+      <span class="lbl" style="color:#1D1D1B">Business card</span></div>
+    <div class="tile" style="background:#F3ECE0"><div class="icons" style="flex-direction:column;gap:18px">
+      <div class="app" style="background:#1E5B57"><img src="file://{{OUT}}/03-modular/bellink-03-modular-symbol-white.svg" style="height:66px"></div>
+      <div style="font:500 11px J;letter-spacing:.2em;color:#1D1D1B;opacity:.6">APP ICON</div></div></div>
+    <div class="tile palette">
+      <div class="chip" style="background:#1E5B57;color:#F3ECE0"><b>Teal</b>#1E5B57</div>
+      <div class="chip" style="background:#D2693C;color:#F3ECE0"><b>Terracotta</b>#D2693C</div>
+      <div class="chip" style="background:#E2A93B;color:#1D1D1B"><b>Mustard</b>#E2A93B</div>
+      <div class="chip" style="background:#F3ECE0;color:#1D1D1B"><b>Cream</b>#F3ECE0</div>
+    </div>
+  </div>
+</section>
+<div class="foot">명함의 이름·직함은 예시입니다. 마음에 드는 방향을 고르시면 가로형·세로형·한글형·단색·파비콘까지 전체 세트로 정리합니다.</div>
+</body></html>

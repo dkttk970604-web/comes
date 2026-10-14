@@ -2,68 +2,56 @@
 
 **bellink = best(최고) + link(연결)**: 여행·숙박·부동산 투자를 잇는 최고의 연결
 
-![bellink 로고 시안](bellink-logo-preview.png)
-
-## A안 · 피크 링크 (추천)
-
-두 개의 체인 링크가 맞물려 정점(∧)을 이루는 심볼입니다.
-
-| 요소 | 의미 |
+| 버전 | 내용 |
 |---|---|
-| 맞물린 두 링크 | **link(연결)**: 고객과 여행지·숙소·자산을 잇는 회사 |
-| 두 링크가 만나는 정점 | **best(최고)**: 가장 높은 곳, 최고의 서비스 |
-| ∧ 모양 | 산(여행), 지붕(숙박·부동산), 상승 화살표(투자): 세 사업을 한 모양에 담음 |
-| 네이비 + 골드 | 신뢰·안정감 + 프리미엄·환대 |
+| **[2차 시안 (현재)](#2차-시안-더-감각적인-세-가지-방향)** | 부티크 호텔·라이프스타일 브랜드 톤의 세 가지 방향 |
+| [1차 시안 (보관)](v1/README.md) | 피크 링크(네이비·골드) 외 2안 |
 
-B안(하우스 b)과 C안(스타 워드마크)은 비교용 대안입니다. 대안을 고르시면 같은 구성(가로형·세로형·한글형·반전형·아이콘)으로 확장할 수 있습니다.
+## 2차 시안: 더 감각적인 세 가지 방향
 
-## 파일
+![bellink 로고 2차 시안](v2/bellink-logo-v2-preview.png)
 
-모든 로고는 `svg/`(원본, 크기 무관)와 `png/`(투명 배경)에 있습니다. 인쇄물·간판에는 SVG를, 문서·SNS에는 PNG를 쓰세요.
+### 01 아치 (Arch): 부티크 스테이 · 따뜻함 · 자연
 
-| 용도 | 파일 |
+두 개의 둥근 문(아치)이 겹치면 그 사이에 뾰족한 정점의 창이 생기고, 그 자리를 비워 빛이 드는 것처럼 보이게 했습니다. 여행의 문과 집의 문이 만나는 자리가 곧 &lsquo;최고의 연결&rsquo;입니다.
+
+- 워드마크: Jost Regular
+- 색: Forest `#1F3A32` · Clay `#C9734F` · Sand `#E3D8C6` · Ivory `#F4EFE7`
+
+### 02 세리프 도어 (Serif door): 럭셔리 · 에디토리얼 · 타임리스
+
+bellink의 두 l을 하나의 아치형 문으로 잇는 합자를 새로 그렸습니다. 글자 자체가 &lsquo;연결&rsquo;이 되고, i 위의 샴페인색 점은 문 너머의 &lsquo;최고&rsquo;를 뜻합니다. 짧은 표기(앱 아이콘, 명함 앞면)에는 문과 점만 씁니다.
+
+- 워드마크: Fraunces (ll 합자는 직접 제작)
+- 색: Ink `#1C1B19` · Champagne `#B8976A` · Stone `#D9D2C5` · Ivory `#F4EFE7`
+
+### 03 모듈 b (Modular b): 모던 · 경쾌함 · 대담함
+
+아치(숙박), 사각 블록(부동산), 해(여행) 세 조각이 맞물려 bellink의 b가 됩니다. 세 사업이 하나로 연결된 회사라는 뜻입니다.
+
+- 워드마크: Jost Medium
+- 색: Teal `#1E5B57` · Terracotta `#D2693C` · Mustard `#E2A93B` · Cream `#F3ECE0`
+
+### 파일
+
+각 방향 폴더(`v2/01-arch`, `v2/02-serif`, `v2/03-modular`)에 SVG(원본)와 투명 배경 PNG가 있습니다.
+
+| 파일 | 용도 |
 |---|---|
-| 기본 로고 (가로형) | `bellink-logo-horizontal` |
-| 어두운 배경용 | `bellink-logo-horizontal-white`, `bellink-logo-vertical-white`, `bellink-logo-korean-white`, `bellink-symbol-white` |
-| 세로형 (정사각형 공간, 표지) | `bellink-logo-vertical` |
-| 한글형 | `bellink-logo-korean` |
-| 단색 (도장, 팩스, 음각) | `bellink-logo-horizontal-navy`, `bellink-logo-horizontal-black`, `bellink-symbol-navy` |
-| 심볼만 | `bellink-symbol` |
-| 앱 아이콘·파비콘·SNS 프로필 | `bellink-app-icon` (PNG 1024 / 512 / 180 / 64 / 32px) |
-| 대안 시안 | `concept-b-house-b-wordmark`, `concept-c-star-wordmark` |
+| `bellink-<방향>-logo` | 가로형 로고 (밝은 배경) |
+| `bellink-<방향>-logo-white` | 가로형 로고 (어두운 배경) |
+| `bellink-<방향>-symbol` | 심볼·모노그램 (밝은 배경) |
+| `bellink-<방향>-symbol-white` | 심볼·모노그램 (어두운 배경, 앱 아이콘) |
 
-## 색상
+명함 속 이름과 직함은 예시입니다. 방향을 고르시면 세로형·한글형·단색·파비콘까지 전체 세트로 정리합니다.
 
-| 이름 | HEX | RGB | 쓰임 |
-|---|---|---|---|
-| Deep Navy | `#0E2A47` | 14, 42, 71 | 워드마크, 왼쪽 링크, 어두운 배경 |
-| Best Gold | `#E3A21A` | 227, 162, 26 | 오른쪽 링크, i의 점 (강조색으로만) |
-| White | `#FFFFFF` | 255, 255, 255 | 배경, 반전형 |
+### 서체와 재생성
 
-인쇄할 때는 인쇄소에서 CMYK 또는 별색(Pantone) 교정을 받으세요. 골드는 흰 배경 위 글자색으로 쓰면 잘 읽히지 않으니 그래픽 강조에만 씁니다.
-
-## 사용 규칙
-
-- **여백**: 로고 둘레에 심볼 높이의 절반 이상을 비워 두세요.
-- **최소 크기**: 가로형은 화면에서 높이 24px, 인쇄에서 8mm 이상. 그보다 작으면 심볼이나 앱 아이콘을 씁니다.
-- **배경**: 밝은 배경에는 기본형, 네이비·어두운 사진 위에는 `-white` 버전을 씁니다.
-- **하지 말 것**: 비율 늘리기·찌그러뜨리기, 색 바꾸기, 그림자·외곽선 추가, 두 링크의 겹침 순서 바꾸기, 복잡한 사진 위에 바로 올리기.
-
-## 서체
-
-- 워드마크: **Outfit SemiBold**. 글자를 윤곽선으로 바꿔 넣었으므로 폰트가 없어도 똑같이 보입니다.
-- 한글: **Pretendard Bold**.
-- 두 서체 모두 SIL OFL 라이선스로 상업적 사용이 무료입니다. 명함·문서·웹사이트의 브랜드 서체로도 쓰세요.
-
-## 수정과 재생성
-
-로고는 `source/generate.py`가 수치로 그립니다. 색, 링크 각도, 간격 등을 바꾼 뒤 다시 실행하면 모든 파일이 새로 만들어집니다.
+Jost, Fraunces, Pretendard 모두 SIL OFL 라이선스로 상업적 사용이 무료입니다. 로고 속 글자는 윤곽선으로 바꿔 넣었으므로 폰트가 없어도 똑같이 보입니다.
 
 ```bash
 pip install fonttools skia-pathops uharfbuzz
-python3 brand/logo/source/generate.py   # PNG 렌더링에는 Node.js + Playwright 필요
+python3 brand/logo/v2/source/generate.py   # PNG·미리보기 렌더링에는 Node.js + Playwright 필요
 ```
 
-## 상표 등록 전 확인
-
-출원 전에 [KIPRIS](https://www.kipris.or.kr)에서 비슷한 이름·도형 상표가 있는지 검색하세요. 관련 상품류는 39류(여행 알선), 43류(숙박), 36류(부동산)입니다.
+상표 출원 전에는 [KIPRIS](https://www.kipris.or.kr)에서 비슷한 상표를 검색하세요. 관련 상품류는 39류(여행 알선), 43류(숙박), 36류(부동산)입니다.

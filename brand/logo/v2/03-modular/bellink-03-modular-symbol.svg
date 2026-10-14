@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -100 100 100" width="100" height="100" role="img" aria-label="bellink">
+<title>bellink</title>
+<path fill="#D2693C" d="M0 -50V-75C-0 -88.81 11.19 -100 25 -100C38.81 -100 50 -88.81 50 -75V-50Z"/>
+<path fill="#1E5B57" d="M0 -50H50V0H0Z"/>
+<path fill="#E2A93B" d="M100 -25C100 -11.19 88.81 -0 75 0C61.19 0 50 -11.19 50 -25C50 -38.81 61.19 -50 75 -50C88.81 -50 100 -38.81 100 -25Z"/>
+</svg>
