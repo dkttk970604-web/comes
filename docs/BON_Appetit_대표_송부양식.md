@@ -4,7 +4,7 @@
 
 수신자 이름, 발신자 정보, 회신 기한, 목표 오픈 시기는 요청에 따라 넣지 않았습니다.
 
-발송용 PDF: [영문](BON_Appetit_Korea_Store1_Startup_Plan_EN.pdf) · [한국어](BON_Appetit_한국1호점_창업계획서_KO.pdf) (이태원 상권 개요, 주변 개발 일정표, 건물 사진 포함)
+발송용 PDF: [영문](BON_Appetit_Korea_Store1_Startup_Plan_EN.pdf) · [한국어](BON_Appetit_한국1호점_창업계획서_KO.pdf) (이태원 상권 개요, 주변 배후 수요 변화 일정표, 건물 사진 포함)
 
 - **본사가 이미 확인한 내용**: 주류 판매, 서브웨이식 오픈 키친, 셀프 서빙은 이미 확인했으므로 다시 묻지 않았습니다.
 - **넣지 않은 내용**: 가맹비, 로열티 같은 계약 조건과, 예산 상한이나 건물 점검 결과 같은 내부 정보입니다.
@@ -21,7 +21,7 @@ Thank you for your support for bringing BON Appetit to Korea.
 
 We have found a site for the first Korean store in Itaewon, Seoul. Itaewon is one of Seoul's best-known areas for international food, with many foreign visitors and residents. The building has a basement, two floors and a rooftop. We plan an open kitchen on the first floor and seating on the other floors.
 
-We have prepared an estimate of the startup costs. Please find the attached plan. It starts with an overview of the Itaewon market and planned developments nearby, followed by five parts:
+We have prepared an estimate of the startup costs. Please find the attached plan. It starts with an overview of the Itaewon market and how the customer base nearby is changing, followed by five parts:
 
 - Part A: Project overview
 - Part B: Startup investment summary (estimates in KRW and USD)
@@ -45,18 +45,17 @@ Itaewon became Seoul's first Special Tourist Zone in 1997. It grew next to the f
 
 The store is in the Noksapyeong area of Itaewon. It is a 5-minute walk from Noksapyeong Station and next to the Yongsan District Office. Noksapyeong links Itaewon with Yongsan Park, and Gyeongnidan-gil and Haebangchon are close by.
 
-The area is recovering well. Small-store vacancy in Itaewon fell to 3.9% in Q3 2025, from 13.9% a year earlier. Side-street restaurants and bars are busy with young Korean and international customers. Land prices in Yongsan-gu rose 6.15% in 2025, the second highest of Seoul's 25 districts (Seoul 4.02%, Korea 2.25%).
+Itaewon's commercial area is recovering well. Small-store vacancy fell to 3.9% in Q3 2025, from 13.9% a year earlier, and is far lower than for mid-to-large stores (13.6%). Restaurants and bars in the side streets are busy with young Korean and international customers.
 
-### Planned Developments Nearby
+### How the Customer Base Nearby Is Changing
 
-Dates are plans or targets reported in 2025–2026 and may change. The PDF shows these on a timeline.
+New residents, hotel guests and park visitors are expected around the store. Dates are plans or targets reported in 2025–2026 and may change. The PDF shows these on a timeline.
 
-| Project | What it is | Status and timing |
+| Project | What it brings to the area | Status and timing |
 |---|---|---|
-| Yongsan Park | Former U.S. Army Yongsan Garrison being turned into a national park, next to the Noksapyeong area | Yongsan Children's Garden fully open to the public since December 2025. The rest of the park opens in stages; the full opening date is not fixed |
-| The Parkside Seoul (former UN Command site) | Mixed-use complex of 11 buildings: Rosewood Seoul hotel (250 rooms), Shinsegae retail, residences | Rosewood Seoul planned to open in 2027. First residences (775 officetel units) planned to move in from June 2027 |
-| Hannam New Town | Redevelopment of Hannam-dong in five zones | Zone 3 (Hyundai E&C, 5,988 homes): demolition almost done, completion target 2029. Zone 2: construction start target H2 2027. Zones 4 (Samsung C&T, 2,331 homes) and 5 (DL E&C, about 2,550 homes): construction start target 2031 |
-| Yongsan International Business District | New business district of 456,099 m² on the former rail yard | Groundbreaking November 2025. Infrastructure by 2028, first occupants from 2030 |
+| Yongsan Park | More visitors to the Noksapyeong area as the former U.S. Army base opens as a park | Yongsan Children's Garden fully open to the public since December 2025. The rest of the park opens in stages; the full opening date is not fixed |
+| The Parkside Seoul (former UN Command site) | Hotel guests and new residents nearby: Rosewood Seoul hotel (250 rooms), Shinsegae retail, residences | Rosewood Seoul planned to open in 2027. First residences (775 officetel units) planned to move in from June 2027 |
+| Hannam New Town | Thousands of new households nearby as Hannam-dong is rebuilt in five zones | Zone 3 residents have moved out for construction. Zone 3 (5,988 homes): completion target 2029. Zone 2: construction start target H2 2027. Zones 4 and 5 (about 4,900 homes): construction start target 2031 |
 
 Sources: Seoul Metropolitan Government; Korea Real Estate Board; Hankyung, Financial News, MTN, Money Today, Seoul Shinmun and Herald Business reports (2025–2026).
 
@@ -170,7 +169,7 @@ BON Appetit를 한국에 도입하는 데 도움을 주셔서 감사합니다.
 
 서울 이태원에 한국 1호점 자리를 찾았습니다. 이태원은 외국인 방문객과 거주자가 많은, 서울에서 손꼽히는 세계 음식 지역입니다. 건물은 지하층, 2개 층, 루프탑으로 되어 있습니다. 1층은 오픈 키친, 나머지 층은 객석으로 계획하고 있습니다.
 
-창업비용 추정을 마쳐 첨부 계획서로 보내드립니다. 앞부분에 이태원 상권과 주변 개발 계획을 정리했고, 이어서 다섯 부분으로 구성했습니다.
+창업비용 추정을 마쳐 첨부 계획서로 보내드립니다. 앞부분에 이태원 상권과 주변 배후 수요 변화를 정리했고, 이어서 다섯 부분으로 구성했습니다.
 
 - Part A: 프로젝트 개요
 - Part B: 창업 투자비 요약 (원화·달러 추정)
@@ -192,18 +191,17 @@ BON Appetit를 한국에 도입하는 데 도움을 주셔서 감사합니다.
 
 매장은 이태원 녹사평 일대에 있습니다. 녹사평역에서 걸어서 5분, 용산구청 바로 옆입니다. 녹사평은 이태원과 용산공원을 잇는 곳이고, 경리단길과 해방촌이 가깝습니다.
 
-상권은 회복세입니다. 이태원 소규모 상가 공실률은 2025년 3분기 3.9%로, 1년 전 13.9%에서 크게 낮아졌습니다. 골목 음식점과 주점은 젊은 내국인과 외국인 손님으로 붐빕니다. 용산구 땅값은 2025년 6.15% 올라 서울 25개 구 중 두 번째로 높았습니다(서울 4.02%, 전국 2.25%).
+이태원 상권은 회복세입니다. 소규모 상가 공실률은 2025년 3분기 3.9%로 1년 전 13.9%에서 크게 낮아졌고, 중대형 상가(13.6%)보다 훨씬 낮습니다. 골목 음식점과 주점은 젊은 내국인과 외국인 손님으로 붐빕니다.
 
-**주변 개발 계획**
+**주변 배후 수요 변화**
 
-날짜는 2025~2026년에 보도된 계획 또는 목표이며 바뀔 수 있습니다. PDF에는 일정표 그림으로 들어 있습니다.
+매장 주변에 새 주민, 호텔 투숙객, 공원 방문객이 늘어날 예정입니다. 날짜는 2025~2026년에 보도된 계획 또는 목표이며 바뀔 수 있습니다. PDF에는 일정표 그림으로 들어 있습니다.
 
-| 사업 | 내용 | 현황과 일정 |
+| 사업 | 상권에 주는 변화 | 현황과 일정 |
 |---|---|---|
-| 용산공원 | 옛 용산 미군기지를 국가공원으로 조성. 녹사평 일대와 맞닿아 있음 | 용산어린이정원은 2025년 12월부터 예약 없이 전면 개방. 나머지 부지는 단계적으로 개방하며 전체 개방 시점은 미정 |
-| 더파크사이드 서울(옛 유엔사 부지) | 11개 동 복합단지: 로즈우드 서울 호텔(250실), 신세계 상업시설, 주거 | 로즈우드 서울 2027년 개관 예정. 첫 주거(오피스텔 775세대) 2027년 6월 입주 예정 |
-| 한남뉴타운 | 한남동 일대 5개 구역 재개발 | 3구역(현대건설, 5,988가구): 철거 거의 완료, 2029년 준공 목표. 2구역: 2027년 하반기 착공 목표. 4구역(삼성물산, 2,331가구)·5구역(DL이앤씨, 약 2,550가구): 2031년 착공 목표 |
-| 용산국제업무지구 | 옛 철도정비창 부지 456,099㎡에 조성하는 새 업무지구 | 2025년 11월 기공식. 2028년 기반시설 완공, 2030년부터 입주 목표 |
+| 용산공원 | 옛 미군기지가 공원으로 열리면서 녹사평 일대 방문객 증가 | 용산어린이정원은 2025년 12월부터 예약 없이 전면 개방. 나머지 부지는 단계적으로 개방하며 전체 개방 시점은 미정 |
+| 더파크사이드 서울(옛 유엔사 부지) | 인근에 호텔 투숙객과 새 주민 유입: 로즈우드 서울 호텔(250실), 신세계 상업시설, 주거 | 로즈우드 서울 2027년 개관 예정. 첫 주거(오피스텔 775세대) 2027년 6월 입주 예정 |
+| 한남뉴타운 | 한남동 5개 구역 재개발로 인근에 수천 가구가 새로 입주 | 3구역 주민은 공사를 위해 이주한 상태. 3구역(5,988가구): 2029년 준공 목표. 2구역: 2027년 하반기 착공 목표. 4·5구역(약 4,900가구): 2031년 착공 목표 |
 
 출처: 서울시, 한국부동산원, 한국경제·파이낸셜뉴스·머니투데이방송·머니투데이·서울신문·헤럴드경제 보도(2025~2026년).
 
