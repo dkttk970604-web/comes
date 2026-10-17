@@ -2,7 +2,9 @@
 
 이 문서는 [창업비용 산출 프롬프트](프렌치타코_이태원_창업비용_프롬프트.md)의 프롬프트 2를 실행한 결과입니다. 금액은 [창업비용 산출 결과](프렌치타코_이태원_창업비용_산출결과.md) 9장의 A안 숫자를 그대로 썼습니다.
 
-수신자 이름, 발신자 정보, 회신 기한은 요청에 따라 넣지 않았습니다.
+수신자 이름, 발신자 정보, 회신 기한, 목표 오픈 시기는 요청에 따라 넣지 않았습니다.
+
+발송용 PDF: [영문](BON_Appetit_Korea_Store1_Startup_Plan_EN.pdf) · [한국어](BON_Appetit_한국1호점_창업계획서_KO.pdf) (건물 사진 포함)
 
 - **본사가 이미 확인한 내용**: 주류 판매, 서브웨이식 오픈 키친, 셀프 서빙은 이미 확인했으므로 다시 묻지 않았습니다.
 - **넣지 않은 내용**: 가맹비, 로열티 같은 계약 조건과, 예산 상한이나 건물 점검 결과 같은 내부 정보입니다.
@@ -52,7 +54,6 @@ Thank you very much. We look forward to your reply.
 | Drinks | Beer and other alcohol will be sold |
 | Previous use | Curry restaurant. All kitchen and dining equipment will be new |
 | Exterior | Repainting only. No major facade work |
-| Target opening | Early 2027 (to be confirmed) |
 
 ### Part B. Startup Investment Summary (estimates)
 
@@ -179,7 +180,6 @@ BON Appetit를 한국에 도입하는 데 도움을 주셔서 감사합니다.
 | 음료 | 맥주 등 주류 판매 |
 | 기존 업종 | 카레 전문점. 주방·홀 집기는 모두 새로 구매 |
 | 외관 | 외벽 재도장만 함. 큰 외관 공사 없음 |
-| 목표 오픈 | 2027년 초(확정 전) |
 
 **Part B. 창업 투자비 요약 (추정)**
 
