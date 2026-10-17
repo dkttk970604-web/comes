@@ -2,7 +2,7 @@
 
 이 문서는 [창업비용 산출 프롬프트](프렌치타코_이태원_창업비용_프롬프트.md)의 프롬프트 2를 실행한 결과입니다. 금액은 [창업비용 산출 결과](프렌치타코_이태원_창업비용_산출결과.md) 9장의 A안 숫자를 그대로 썼습니다.
 
-보내기 전에 아래 대괄호 칸을 채우세요: `[Name]`(수신자), 발신자 이름·직함·회사·연락처, `[Reply date]`(회신 기한).
+수신자 이름, 발신자 정보, 회신 기한은 요청에 따라 넣지 않았습니다.
 
 - **본사가 이미 확인한 내용**: 주류 판매, 서브웨이식 오픈 키친, 셀프 서빙은 이미 확인했으므로 다시 묻지 않았습니다.
 - **넣지 않은 내용**: 가맹비, 로열티 같은 계약 조건과, 예산 상한이나 건물 점검 결과 같은 내부 정보입니다.
@@ -13,7 +13,7 @@
 
 **Subject:** BON Appetit Korea Store #1 (Itaewon, Seoul) – Startup Cost Plan and Questions for HQ
 
-Dear [Name],
+Dear BON Appetit Team,
 
 Thank you for your support for bringing BON Appetit to Korea.
 
@@ -29,15 +29,9 @@ We have prepared an estimate of the startup costs. Please find the attached plan
 
 All amounts are estimates. We have not received contractor quotes yet. Commercial terms will be discussed separately.
 
-Could you please fill in the blank columns in Parts C and D and send them back by **[Reply date]**? If it is easier, we are happy to go through them together on a video call.
+Could you please fill in the blank columns in Parts C and D and send them back when convenient? If it is easier, we are happy to go through them together on a video call.
 
 Thank you very much. We look forward to your reply.
-
-Best regards,
-
-[Your Name]
-[Title], [Company]
-[Phone] | [Email]
 
 ---
 
@@ -58,8 +52,7 @@ Best regards,
 | Drinks | Beer and other alcohol will be sold |
 | Previous use | Curry restaurant. All kitchen and dining equipment will be new |
 | Exterior | Repainting only. No major facade work |
-| Target opening | [Early 2027 – to be confirmed] |
-| Operator | [Company name] |
+| Target opening | Early 2027 (to be confirmed) |
 
 ### Part B. Startup Investment Summary (estimates)
 
@@ -136,7 +129,7 @@ Please check if each item meets the BON Appetit standard. If not, please write t
 
 ### Part E. Next Steps
 
-1. Please return Parts C and D by **[Reply date]**.
+1. Please return Parts C and D when convenient.
 2. We suggest a video call in the week after your reply to go through the open items.
 3. After we receive your answers, we will get contractor quotes and send you an updated cost plan.
 4. Commercial terms will be discussed separately.
@@ -149,7 +142,7 @@ Please check if each item meets the BON Appetit standard. If not, please write t
 
 **제목:** BON Appetit 한국 1호점(서울 이태원) – 창업비용 계획과 본사 확인 요청
 
-[Name]님께,
+BON Appetit 팀 귀중
 
 BON Appetit를 한국에 도입하는 데 도움을 주셔서 감사합니다.
 
@@ -165,13 +158,9 @@ BON Appetit를 한국에 도입하는 데 도움을 주셔서 감사합니다.
 
 모든 금액은 추정치이며, 아직 시공업체 견적을 받기 전입니다. 계약 조건은 별도로 협의하겠습니다.
 
-Part C와 D의 빈칸을 채워 **[회신 기한]**까지 보내주실 수 있을까요? 편하시다면 화상 회의로 함께 검토해도 좋습니다.
+편하실 때 Part C와 D의 빈칸을 채워 보내주실 수 있을까요? 편하시다면 화상 회의로 함께 검토해도 좋습니다.
 
 감사합니다. 회신 기다리겠습니다.
-
-[이름]
-[직함], [회사]
-[전화] | [이메일]
 
 ### 첨부: 한국 1호점 창업 계획서
 
@@ -190,8 +179,7 @@ Part C와 D의 빈칸을 채워 **[회신 기한]**까지 보내주실 수 있�
 | 음료 | 맥주 등 주류 판매 |
 | 기존 업종 | 카레 전문점. 주방·홀 집기는 모두 새로 구매 |
 | 외관 | 외벽 재도장만 함. 큰 외관 공사 없음 |
-| 목표 오픈 | [2027년 초, 확정 전] |
-| 운영 주체 | [회사명] |
+| 목표 오픈 | 2027년 초(확정 전) |
 
 **Part B. 창업 투자비 요약 (추정)**
 
@@ -247,7 +235,7 @@ Part C와 D의 빈칸을 채워 **[회신 기한]**까지 보내주실 수 있�
 
 **Part E. 다음 단계**
 
-1. Part C와 D를 **[회신 기한]**까지 보내주세요.
+1. 편하실 때 Part C와 D를 보내주세요.
 2. 회신 다음 주에 남은 항목을 함께 검토하는 화상 회의를 제안합니다.
 3. 답변을 받으면 시공업체 견적을 받아 갱신된 비용 계획을 보내드리겠습니다.
 4. 계약 조건은 별도로 협의합니다.
