@@ -17,4 +17,4 @@
 
 ## 브랜드
 
-- **[bellink 브랜드 아이덴티티](brand/logo/README.md)**: 최종 로고 시스템(세리프 도어), 브랜드 가이드 PDF, SVG·PNG·파비콘, 이전 시안
+- **[bellink 브랜드 아이덴티티](brand/logo/README.md)**: 현재 안 [v4: BELLINK 워드마크 + 원형 B 심볼](brand/logo/v4/README.md), 이전 시안(세리프 도어 브랜드 가이드 등)
