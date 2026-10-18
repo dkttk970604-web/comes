@@ -4,6 +4,8 @@
 
 ![심볼과 로고 적용 예시](bellink-v4-examples.png)
 
+심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
+
 ## 구성
 
 - **워드마크**: 보내주신 이미지를 벡터로 재현했습니다. Noto Sans KR SemiBold(600), 자간 -0.02em로 글자 폭과 전체 길이가 원본과 일치합니다.
