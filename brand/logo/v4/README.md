@@ -6,6 +6,14 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 서로 이어진 두 B (선택 중)
+
+![서로 이어진 두 B](bellink-v4-linked-b.png)
+
+- **A 맞댄 B**: 두 B가 등을 맞대고 기둥 하나를 함께 씀 (좌우 대칭)
+- **B 돌려 맞댄 B**: 한 B를 거꾸로 돌려 기둥을 함께 씀 (점대칭)
+- **C 고리로 걸린 B**: 마주 본 두 B의 볼이 가운데서 체인 고리처럼 걸림
+
 ## 고리 심볼 (선택 중)
 
 ![고리처럼 잇는 심볼](bellink-v4-loop-symbols.png)
