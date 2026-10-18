@@ -6,6 +6,13 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 고리 심볼 (선택 중)
+
+![고리처럼 잇는 심볼](bellink-v4-loop-symbols.png)
+
+- **한 줄 고리** (`-loop`): B의 기둥이 내려오다 부드럽게 꺾여 그대로 원이 되고, 한 바퀴 돌아 열린 채 끝납니다.
+- **소용돌이 고리** (`-spiral`): B의 아래 곡선이 끊기지 않고 바깥으로 이어져 원을 감습니다.
+
 ## 구성
 
 - **워드마크**: 보내주신 이미지를 벡터로 재현했습니다. Noto Sans KR SemiBold(600), 자간 -0.02em로 글자 폭과 전체 길이가 원본과 일치합니다.
@@ -25,6 +32,8 @@
 | `bellink-symbol` | 심볼 B (추천) |
 | `bellink-symbol-alt` | 심볼 A (스케치 그대로) |
 | `bellink-app-icon` | 앱 아이콘 (검정 바탕 + 크림 심볼) |
+| `bellink-symbol-loop`, `bellink-logo-horizontal-loop`, `bellink-logo-vertical-loop` | 한 줄 고리 심볼과 로고 조합 |
+| `bellink-symbol-spiral`, `bellink-logo-horizontal-spiral`, `bellink-logo-vertical-spiral` | 소용돌이 고리 심볼과 로고 조합 |
 
 명함 속 이름·주소와 SNS 화면은 예시입니다.
 

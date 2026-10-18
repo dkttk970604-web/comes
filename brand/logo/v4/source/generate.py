@@ -6,6 +6,7 @@
 - 워드마크: 보내주신 BELLINK 이미지를 Noto Sans KR SemiBold(600), 자간 -0.02em로 벡터 재현
 - 심볼 B(추천): 원 안의 모노라인 B. B의 기둥이 아래로 내려와 원과 이어집니다
 - 심볼 A: 스케치 그대로. 원이 왼쪽 아래에서 B의 밑으로 감겨 들어갑니다
+- 고리 심볼: 한 줄 고리(B의 기둥이 원이 됨), 소용돌이 고리(B의 아래 곡선이 원이 됨)
 PNG 렌더링에는 Node.js + Playwright가 필요합니다. 폰트(Noto Sans KR, SIL OFL)는 처음 실행할 때 내려받습니다.
 """
 import json
@@ -133,6 +134,69 @@ def symbol_a(q_deg=160.0):
     return union(stroke(p, STROKE), b_letter())
 
 
+def _stroke_round(p, w):
+    q = pathops.Path(p)
+    q.stroke(w, LineCap.ROUND_CAP, LineJoin.ROUND_JOIN, 4)
+    q.convertConicsToQuads()
+    q.simplify()
+    return q
+
+
+def _bowls():
+    ru, rl = (YM - YT) / 2, (YB - YM) / 2
+    xu, xl = -A + WU - ru, -A + WL - rl
+    p = pathops.Path()
+    p.moveTo(-A, YM)
+    p.lineTo(-A, YT)
+    p.lineTo(xu, YT)
+    _arc(p, xu, YT + ru, ru, -math.pi / 2, math.pi / 2)
+    p.lineTo(-A, YM)
+    p.moveTo(-A, YM)
+    p.lineTo(xl, YM)
+    _arc(p, xl, YM + rl, rl, -math.pi / 2, math.pi / 2)
+    p.lineTo(-A, YB)
+    return p
+
+
+def symbol_loop(t=16.0, gap=38.0):
+    """4 한 줄 고리: B의 기둥이 내려오다 부드럽게 꺾여 원이 되고, 한 바퀴 돌아 열린 채 끝남."""
+    aj = math.radians(100)
+    jx, jy = R * math.cos(aj), R * math.sin(aj)
+    dx, dy = math.sin(aj), -math.cos(aj)
+    y_bend = YB + (jy - YB) * 0.15
+    k = (jy - y_bend) * 0.8
+    p = pathops.Path()
+    p.moveTo(-A, YT)
+    p.lineTo(-A, y_bend)
+    p.cubicTo(-A, y_bend + k, jx - dx * k * 0.9, jy - dy * k * 0.9, jx, jy)
+    _arc(p, 0, 0, R, aj, aj - 2 * math.pi + math.radians(gap))
+    return union(_stroke_round(p, t), stroke(_bowls(), t))
+
+
+def symbol_spiral(t=16.0, start=164.0, sweep=300.0):
+    """7 소용돌이 고리: B의 아래 곡선이 끊기지 않고 이어져 바깥 원을 감음."""
+    ru, rl = (YM - YT) / 2, (YB - YM) / 2
+    xu, xl = -A + WU - ru, -A + WL - rl
+    p = pathops.Path()
+    p.moveTo(-A, YM)
+    p.lineTo(xl, YM)
+    _arc(p, xl, YM + rl, rl, -math.pi / 2, math.pi / 2)
+    a = math.radians(start)
+    ex, ey = R * math.cos(a), R * math.sin(a)
+    k = 0.5 * math.hypot(ex - xl, ey - YB)
+    p.cubicTo(xl - k * 1.1, YB, ex + math.sin(a) * k, ey - math.cos(a) * k, ex, ey)
+    _arc(p, 0, 0, R, a, a + math.radians(sweep))
+    up = pathops.Path()
+    up.moveTo(-A, YM)
+    up.lineTo(-A, YT)
+    up.lineTo(xu, YT)
+    _arc(up, xu, YT + ru, ru, -math.pi / 2, math.pi / 2)
+    up.lineTo(-A, YM)
+    up.moveTo(-A, YT)
+    up.lineTo(-A, YB)
+    return union(_stroke_round(p, t), stroke(up, t))
+
+
 def normalise(p, h):
     x0, y0, x1, y1 = p.bounds
     s = h / (y1 - y0)
@@ -200,6 +264,12 @@ def main():
         'bellink-wordmark': ([wordmark()], 300),
         'bellink-logo-horizontal': (lockup_horizontal(sym_b), 400),
         'bellink-logo-vertical': (lockup_vertical(sym_b), 800),
+        'bellink-symbol-loop': ([normalise(symbol_loop(), 200)], 800),
+        'bellink-symbol-spiral': ([normalise(symbol_spiral(), 200)], 800),
+        'bellink-logo-horizontal-loop': (lockup_horizontal(symbol_loop()), 400),
+        'bellink-logo-horizontal-spiral': (lockup_horizontal(symbol_spiral()), 400),
+        'bellink-logo-vertical-loop': (lockup_vertical(symbol_loop()), 800),
+        'bellink-logo-vertical-spiral': (lockup_vertical(symbol_spiral()), 800),
     }
     jobs = []
     for name, (paths, ph) in items.items():
