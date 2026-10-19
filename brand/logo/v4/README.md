@@ -6,6 +6,12 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 고리 부분 다시 보기 (선택 중)
+
+![고리 부분 다시 보기](bellink-v4-ring-revisit.png)
+
+체인처럼 보이려면 엮이는 자리가 두 곳이어야 합니다. G1은 기둥에 두 원 고리가 좌우 두 곳에서 엮이고, G3은 보통 B 모양을 지키면서 아래 칸이 기둥 위를 지나고 오른쪽에서 위 칸 곡선 아래로 들어갑니다.
+
 ## 더 B답게 엮은 고리 (선택 중)
 
 ![더 B답게 엮은 고리](bellink-v4-b-linked-classic.png)
