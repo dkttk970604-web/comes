@@ -6,6 +6,12 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 더 B답게 엮은 고리 (선택 중)
+
+![더 B답게 엮은 고리](bellink-v4-b-linked-classic.png)
+
+기둥은 곧은 한 줄, B의 비율도 그대로 두고, 아래 칸의 윗선이 기둥 뒤로 들어와 위 칸의 곡선 앞으로 나가도록 해 안에서 두 칸이 고리처럼 걸리게 했습니다.
+
 ## B 한 글자로 엮은 고리 (선택 중)
 
 ![B 한 글자로 엮은 고리](bellink-v4-single-b-link.png)
