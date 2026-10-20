@@ -6,6 +6,32 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 잘나가는 브랜드 로고 벤치마크 분석
+
+여행, 숙박, 부동산 투자 업종의 대표 브랜드와 ‘연결’을 로고로 표현한 브랜드를 살펴보고, 벨링크에 맞는 방식을 골랐습니다. 전체 보고서: [benchmark/bellink-logo-benchmark.pdf](benchmark/bellink-logo-benchmark.pdf)
+
+| 쪽 | 내용 |
+|---|---|
+| [1](benchmark/bellink-benchmark-01.png) | 업종별 공통점과 벨링크에 주는 시사점 |
+| [2](benchmark/bellink-benchmark-02.png) | 살펴본 브랜드 10곳(묶음 포함)과 적합도 |
+| [3](benchmark/bellink-benchmark-03.png) | 다섯 가지 로고 방식을 벨링크에 대입한 시안 |
+| [4](benchmark/bellink-benchmark-04.png) | 추천안, 2·3순위, 피할 것, 다음 단계 |
+
+![추천안](benchmark/bellink-benchmark-04.png)
+
+**추천**: BELLINK 워드마크를 주인공으로 두고, 한 줄로 그린 B 심볼은 앱 아이콘·파비콘·간판처럼 작은 자리에 씁니다(Booking.com + Airbnb 방식). 2순위는 대칭 모노그램(두 B를 맞물린 안), 3순위는 워드마크 단독입니다.
+
+로고 이미지는 상표권 때문에 싣지 않고 글로 설명했습니다. 참고한 자료:
+
+- Airbnb Bélo: [Design Week](https://www.designweek.co.uk/issues/july-2014/designstudio-creates-symbol-of-belonging-for-airbnb-rebrand/), [designboom](https://www.designboom.com/design/airbnb-rebrand-gives-its-community-a-sense-of-belonging-07-16-2014/)
+- Tripadvisor 2020: [It’s Nice That](https://www.itsnicethat.com/news/tripadvisor-rebrand-mother-design-graphic-design-050220), [Design Week](https://www.designweek.co.uk/issues/27-january-2-february-2020/tripadvisor-reveals-new-logo-ahead-of-year-long-identity-refresh)
+- Mastercard 2019: [Dezeen](https://www.dezeen.com/2019/01/10/mastercard-rebrand-pentagram-design/), [Design Week](https://www.designweek.co.uk/mastercard-new-logo-first-time-20-years-2/)
+- Audi 네 고리: [Audi 보도자료](https://www.audi.com/en/press-releases/how-the-four-rings-became-the-audi-trademark-auto-union-ag-founded-90-years-ago-14750)
+- Aman 워드마크: [BP&O](https://bpando.org/2016/02/16/branding-aman/)
+- Four Seasons 나무 로고: [Cooper Hewitt](https://collection.cooperhewitt.org/objects/974522569), [Creative Bloq](https://www.creativebloq.com/news/four-seasons-logo-design)
+- Chanel CC: [Fabrik Brands](https://fabrikbrands.com/branding-matters/logofile/chanel-symbol-and-logo-history-evolution-of-the-chanel-logo/)
+- Booking.com: [1000logos](https://1000logos.net/booking-com-logo/)
+
 ## 지금까지의 심볼 후보 모음 (방향 정하는 중)
 
 ![지금까지의 심볼 후보 모음](bellink-v4-symbol-recap.png)
