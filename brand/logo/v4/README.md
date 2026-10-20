@@ -6,6 +6,12 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 워터마크 잘림 정도 조정
+
+![워터마크 잘림 정도 조정](bellink-v4-watermark-crop.png)
+
+적용 예시의 심볼이 너무 잘려 보여, 굵기(1.5배)와 투명도(50%)는 그대로 두고 크기와 위치만 바꿨습니다. 지금, 조금 잘림(추천), 가장자리에 걸침, 다 보임 네 단계를 명함으로 비교하고, 조금 잘림을 명함·객실 키카드·앱 시작 화면에 적용했습니다.
+
 ## 심볼 A 워터마크 시안
 
 ![심볼 A 워터마크 시안](bellink-v4-watermark.png)
