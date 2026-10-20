@@ -6,6 +6,12 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## BELLINK 글자로 만드는 심볼 아이디어
+
+![글자로 만드는 심볼 아이디어](bellink-v4-letter-symbol-ideas.png)
+
+LL 고리, BL 모노그램, BL 열쇠, E 세 사업, K 만나는 점, BK 처음과 끝, i 위치 핀.
+
 ## 고리 부분 다시 보기 (선택 중)
 
 ![고리 부분 다시 보기](bellink-v4-ring-revisit.png)
