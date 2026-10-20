@@ -128,6 +128,11 @@ def wordmark(width):
 
 
 FRONT_W = 56.0             # 앞면 워드마크 폭 (mm)
+OPTICAL = 0.6              # 앞면: 정가운데보다 살짝 위가 눈에는 가운데로 보입니다 (mm)
+
+# 뒷면 배치 (mm): 왼쪽 여백, 워드마크 윗선까지의 위 여백, 마지막 연락처 기준선까지의 아래 여백
+LEFT, TOP, BOTTOM = 8.0, 8.5, 7.0
+WATER_D, WATER_CX, WATER_CY = 50.0, 75.5, 32.0   # 워터마크 지름과 중심: 오른쪽 21%, 아래 14% 정도가 잘림
 
 
 def front(info):
@@ -142,7 +147,7 @@ def front(info):
     line = text_path(sub, size, 500, track)
     sub_cap = -line.bounds[1]
     gap = 4.4
-    top = H / 2 - (cap + gap + sub_cap) / 2
+    top = H / 2 - (cap + gap + sub_cap) / 2 - OPTICAL
     items.append((at(wm, (W - wm_w) / 2, top + cap, s), CREAM))
     items.append((at(line, (W - ink_width(line)) / 2, top + cap + gap + sub_cap), MUTED))
     return items
@@ -153,18 +158,17 @@ def back(info):
     old, g.STROKE = g.STROKE, 21.75
     sym = g.symbol_a()
     g.STROKE = old
-    d, cx, cy = 57.5, 71.25, 31.0
     x0, y0, x1, y1 = sym.bounds
-    k = d / (y1 - y0)
-    items.append((g.move(sym, cx - (x0 + x1) / 2 * k, cy - (y0 + y1) / 2 * k, k), WATER))
+    k = WATER_D / (y1 - y0)
+    items.append((g.move(sym, WATER_CX - (x0 + x1) / 2 * k, WATER_CY - (y0 + y1) / 2 * k, k), WATER))
 
-    left = 7.0
+    left = LEFT
     wm, s, cap = wordmark(37.0)
-    items.append((at(wm, left, 7.0 + cap, s), CREAM))
+    items.append((at(wm, left, TOP + cap, s), CREAM))
 
     # 연락처 줄 수와 상관없이 마지막 줄이 같은 높이에 오도록 아래에서부터 쌓습니다
     step = 3.25
-    first = 44.6 - (len(info['contacts']) - 1) * step
+    first = H - BOTTOM - (len(info['contacts']) - 1) * step
     name = text_path(info['name'], 4.4, 600)
     items.append((at(name, left, first - 9.6), CREAM))
     title = text_path(info['title'], 2.6, 400)
