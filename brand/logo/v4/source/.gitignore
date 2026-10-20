@@ -1,3 +1,4 @@
 fonts/
 .build/
 __pycache__/
+card-info.json

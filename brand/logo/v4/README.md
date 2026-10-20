@@ -6,6 +6,20 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 명함 (앞뒤)
+
+![명함 앞뒤](business-card/bellink-business-card-preview.png)
+
+- 앞면: BELLINK 워드마크 아래에 HOTEL · TRAVEL · INVESTMENT. 작은 글씨 줄의 폭을 워드마크 폭에 맞췄습니다.
+- 뒷면: 워드마크(앞선 시안보다 크게), 이름과 연락처, 오른쪽에 ‘조금 잘림’ 워터마크 심볼(1.5배 굵기, 투명도 50%를 단색 `#88887A`로 환산).
+- 인쇄용 PDF는 재단 여유 1mm씩을 더한 92 × 52 mm(재단 후 90 × 50 mm) 두 쪽이고, 글자는 모두 윤곽선이라 폰트가 필요 없습니다.
+
+여기 있는 파일은 예시 정보(홍길동)로 만든 것입니다. 저장소가 공개라 실제 연락처가 담긴 명함은 올리지 않습니다. 실제 정보로 만들려면 `source/card-info.example.json`을 복사해 `source/card-info.json`(커밋되지 않음)으로 고친 뒤 실행합니다.
+
+```bash
+python3 brand/logo/v4/source/business_card.py brand/logo/v4/source/card-info.json 출력폴더
+```
+
 ## 워터마크 잘림 정도 조정
 
 ![워터마크 잘림 정도 조정](bellink-v4-watermark-crop.png)
