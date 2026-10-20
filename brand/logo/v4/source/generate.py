@@ -204,7 +204,7 @@ def normalise(p, h):
 
 
 # ---------------------------------------------------------------- wordmark ---
-def wordmark(size=100, wght=600):
+def wordmark(size=100, wght=600, tracking=-0.02):
     face = hb.Face(hb.Blob.from_file_path(NOTO))
     font = hb.Font(face)
     font.set_variations({'wght': wght})
@@ -218,7 +218,7 @@ def wordmark(size=100, wght=600):
         g = pathops.Path()
         font.draw_glyph_with_pen(info.codepoint, TransformPen(g.getPen(), (s, 0, 0, -s, x, 0)))
         out.addPath(g)
-        x += pos.x_advance * s - 0.02 * size
+        x += pos.x_advance * s + tracking * size
     out.simplify()
     return move(out, -out.bounds[0], -out.bounds[3])   # 왼쪽 x=0, 기준선 y=0
 

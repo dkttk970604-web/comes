@@ -4,7 +4,7 @@
 
 - 앞면: BELLINK 워드마크 + 그 아래 작은 글씨로 사업 분야
 - 뒷면: 워드마크, 이름, 아이콘을 붙인 연락처(전화, 이메일, 인스타그램, 주소), 오른쪽에 크게 깔린 심볼 A(1.5배 굵기, 투명도 50%를 단색으로 환산)
-- 명함의 워드마크는 로고 원본(굵기 600)보다 조금 굵은 680으로 씁니다.
+- 명함의 워드마크는 로고 원본(굵기 600, 자간 -0.02em)보다 조금 굵고(680) 자간이 넓습니다(0em).
 - 모든 글자는 윤곽선(패스)으로 바꿔 넣어 인쇄소에 폰트가 없어도 그대로 나옵니다.
 - 인쇄용 PDF는 재단 여유 1mm씩을 더한 92 x 52 mm 두 쪽(앞, 뒤)입니다.
 
@@ -117,12 +117,14 @@ def at(p, x, y, s=1.0):
 
 
 WM_WGHT = 680              # 명함의 워드마크는 로고 원본(600)보다 조금 굵게
+WM_TRACK = 0.0             # 자간도 로고 원본(-0.02em)보다 조금 넓게
 
 
 def wordmark(width):
-    wm = g.wordmark(wght=WM_WGHT)
-    s = width / wm.bounds[2]
-    return wm, s, -wm.bounds[1] * s          # 원본, 배율, 대문자 높이(mm)
+    """width는 로고 원본 자간 기준의 폭. 자간을 넓힌 만큼 실제 폭은 조금 늘어납니다."""
+    s = width / g.wordmark(wght=WM_WGHT).bounds[2]
+    wm = g.wordmark(wght=WM_WGHT, tracking=WM_TRACK)
+    return wm, s, -wm.bounds[1] * s          # 윤곽선, 배율, 대문자 높이(mm)
 
 
 FRONT_W = 56.0             # 앞면 워드마크 폭 (mm)
@@ -131,16 +133,17 @@ FRONT_W = 56.0             # 앞면 워드마크 폭 (mm)
 def front(info):
     items = []
     wm, s, cap = wordmark(FRONT_W)
+    wm_w = wm.bounds[2] * s
     sub = info['services']
     size = 2.3
     plain = text_path(sub, size, 500)
     n = len(sub)
-    track = (FRONT_W - ink_width(plain)) / (n - 1)
+    track = (wm_w - ink_width(plain)) / (n - 1)
     line = text_path(sub, size, 500, track)
     sub_cap = -line.bounds[1]
     gap = 4.4
     top = H / 2 - (cap + gap + sub_cap) / 2
-    items.append((at(wm, (W - FRONT_W) / 2, top + cap, s), CREAM))
+    items.append((at(wm, (W - wm_w) / 2, top + cap, s), CREAM))
     items.append((at(line, (W - ink_width(line)) / 2, top + cap + gap + sub_cap), MUTED))
     return items
 
@@ -159,16 +162,19 @@ def back(info):
     wm, s, cap = wordmark(37.0)
     items.append((at(wm, left, 7.0 + cap, s), CREAM))
 
+    # 연락처 줄 수와 상관없이 마지막 줄이 같은 높이에 오도록 아래에서부터 쌓습니다
+    step = 3.25
+    first = 44.6 - (len(info['contacts']) - 1) * step
     name = text_path(info['name'], 4.4, 600)
-    items.append((at(name, left, 25.6), CREAM))
+    items.append((at(name, left, first - 9.6), CREAM))
     title = text_path(info['title'], 2.6, 400)
-    items.append((at(title, left + ink_width(name) + 2.2, 25.6), MUTED))
-    items.append((at(text_path(info['name_en'], 2.1, 500, 0.32), left, 29.8), MUTED))
+    items.append((at(title, left + ink_width(name) + 2.2, first - 9.6), MUTED))
+    items.append((at(text_path(info['name_en'], 2.1, 500, 0.32), left, first - 5.4), MUTED))
 
     # 연락처: 아이콘(phone, email, instagram, address) 또는 글자 표시 + 내용
     size = 2.1
     for i, (kind, value) in enumerate(info['contacts']):
-        y = 35.2 + i * 3.25
+        y = first + i * step
         if kind in ICONS:
             items.append((g.move(ICONS[kind](), left, y - 0.8 - size / 2, size / 10), MUTED))
         else:
