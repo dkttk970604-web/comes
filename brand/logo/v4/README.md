@@ -6,6 +6,12 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 심볼 A 워터마크 시안
+
+![심볼 A 워터마크 시안](bellink-v4-watermark.png)
+
+심볼 A를 더 크고 굵게(선 굵기 1.5배, 2배), 투명도 50%로 깔고 그 위에 워드마크를 올렸습니다. 가운데 겹침, 오른쪽으로 크게 잘라 배치, 투명도 20% 비교와 명함·객실 키카드·앱 시작 화면 예시가 있습니다.
+
 ## 잘나가는 브랜드 로고 벤치마크 분석
 
 여행, 숙박, 부동산 투자 업종의 대표 브랜드와 ‘연결’을 로고로 표현한 브랜드를 살펴보고, 벨링크에 맞는 방식을 골랐습니다. 전체 보고서: [benchmark/bellink-logo-benchmark.pdf](benchmark/bellink-logo-benchmark.pdf)
