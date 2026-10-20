@@ -3,7 +3,8 @@
     python3 brand/logo/v4/source/business_card.py [정보.json] [출력 폴더]
 
 - 앞면: BELLINK 워드마크 + 그 아래 작은 글씨로 사업 분야
-- 뒷면: 워드마크, 이름과 연락처, 오른쪽에 크게 깔린 심볼 A(1.5배 굵기, 투명도 50%를 단색으로 환산)
+- 뒷면: 워드마크, 이름, 아이콘을 붙인 연락처(전화, 이메일, 인스타그램, 주소), 오른쪽에 크게 깔린 심볼 A(1.5배 굵기, 투명도 50%를 단색으로 환산)
+- 명함의 워드마크는 로고 원본(굵기 600)보다 조금 굵은 680으로 씁니다.
 - 모든 글자는 윤곽선(패스)으로 바꿔 넣어 인쇄소에 폰트가 없어도 그대로 나옵니다.
 - 인쇄용 PDF는 재단 여유 1mm씩을 더한 92 x 52 mm 두 쪽(앞, 뒤)입니다.
 
@@ -11,6 +12,7 @@
 실제 연락처가 담긴 정보 파일과 결과물은 저장소에 올리지 마세요(card-info.json은 .gitignore에 있습니다).
 """
 import json
+import math
 import os
 import subprocess
 import sys
@@ -53,6 +55,58 @@ def text_path(text, size, wght=400, tracking=0.0):
     return out
 
 
+# ------------------------------------------------------------------- icons ---
+# 10 x 10 칸에 그린 선 아이콘. 선 굵기 1.1칸(아이콘 2.1mm일 때 약 0.23mm).
+ICON_T = 1.1
+
+
+def _round_rect(x0, y0, x1, y1, r):
+    p = pathops.Path()
+    p.moveTo(x0 + r, y0)
+    p.lineTo(x1 - r, y0)
+    g._arc(p, x1 - r, y0 + r, r, -math.pi / 2, 0)
+    p.lineTo(x1, y1 - r)
+    g._arc(p, x1 - r, y1 - r, r, 0, math.pi / 2)
+    p.lineTo(x0 + r, y1)
+    g._arc(p, x0 + r, y1 - r, r, math.pi / 2, math.pi)
+    p.lineTo(x0, y0 + r)
+    g._arc(p, x0 + r, y0 + r, r, math.pi, 1.5 * math.pi)
+    p.close()
+    return p
+
+
+def _dot(cx, cy, r):
+    return g.circle(cx, cy, r)
+
+
+def icon_phone():
+    return g.union(g.stroke(_round_rect(2.5, 0.6, 7.5, 9.4, 1.3), ICON_T), _dot(5, 7.6, 0.6))
+
+
+def icon_email():
+    v = g.line((1.0, 2.7), (5, 5.9), (9.0, 2.7))
+    return g.union(g.stroke(_round_rect(0.6, 1.7, 9.4, 8.3, 1.1), ICON_T), g.stroke(v, ICON_T))
+
+
+def icon_instagram():
+    return g.union(g.stroke(_round_rect(0.8, 0.8, 9.2, 9.2, 2.6), ICON_T),
+                   g.stroke(g.circle(5, 5, 2.0), ICON_T), _dot(7.2, 2.8, 0.6))
+
+
+def icon_address():
+    cx, cy, r, tip = 5.0, 3.9, 3.2, 9.5
+    a = math.acos(r / (tip - cy))
+    p = pathops.Path()
+    p.moveTo(cx, tip)
+    p.lineTo(cx + r * math.cos(math.pi / 2 - a), cy + r * math.sin(math.pi / 2 - a))
+    g._arc(p, cx, cy, r, math.pi / 2 - a, -1.5 * math.pi + a)
+    p.close()
+    return g.union(g.stroke(p, ICON_T), g.stroke(g.circle(cx, cy, 1.15), ICON_T))
+
+
+ICONS = {'phone': icon_phone, 'email': icon_email, 'instagram': icon_instagram, 'address': icon_address}
+
+
 def ink_width(p):
     return p.bounds[2] - p.bounds[0]
 
@@ -62,25 +116,31 @@ def at(p, x, y, s=1.0):
     return g.move(p, x - p.bounds[0] * s, y, s)
 
 
+WM_WGHT = 680              # 명함의 워드마크는 로고 원본(600)보다 조금 굵게
+
+
 def wordmark(width):
-    wm = g.wordmark()
+    wm = g.wordmark(wght=WM_WGHT)
     s = width / wm.bounds[2]
     return wm, s, -wm.bounds[1] * s          # 원본, 배율, 대문자 높이(mm)
 
 
+FRONT_W = 56.0             # 앞면 워드마크 폭 (mm)
+
+
 def front(info):
     items = []
-    wm, s, cap = wordmark(46.0)
+    wm, s, cap = wordmark(FRONT_W)
     sub = info['services']
-    size = 2.0
+    size = 2.3
     plain = text_path(sub, size, 500)
     n = len(sub)
-    track = (46.0 - ink_width(plain)) / (n - 1)
+    track = (FRONT_W - ink_width(plain)) / (n - 1)
     line = text_path(sub, size, 500, track)
     sub_cap = -line.bounds[1]
-    gap = 3.8
+    gap = 4.4
     top = H / 2 - (cap + gap + sub_cap) / 2
-    items.append((at(wm, (W - 46.0) / 2, top + cap, s), CREAM))
+    items.append((at(wm, (W - FRONT_W) / 2, top + cap, s), CREAM))
     items.append((at(line, (W - ink_width(line)) / 2, top + cap + gap + sub_cap), MUTED))
     return items
 
@@ -100,15 +160,20 @@ def back(info):
     items.append((at(wm, left, 7.0 + cap, s), CREAM))
 
     name = text_path(info['name'], 4.4, 600)
-    items.append((at(name, left, 27.0), CREAM))
+    items.append((at(name, left, 25.6), CREAM))
     title = text_path(info['title'], 2.6, 400)
-    items.append((at(title, left + ink_width(name) + 2.2, 27.0), MUTED))
-    items.append((at(text_path(info['name_en'], 2.1, 500, 0.32), left, 31.2), MUTED))
+    items.append((at(title, left + ink_width(name) + 2.2, 25.6), MUTED))
+    items.append((at(text_path(info['name_en'], 2.1, 500, 0.32), left, 29.8), MUTED))
 
-    for i, (label, value) in enumerate(info['contacts']):
-        y = 37.6 + i * 3.4
-        items.append((at(text_path(label, 2.1, 600), left, y), MUTED))
-        items.append((at(text_path(value, 2.2, 400), left + 3.6, y), CREAM))
+    # 연락처: 아이콘(phone, email, instagram, address) 또는 글자 표시 + 내용
+    size = 2.1
+    for i, (kind, value) in enumerate(info['contacts']):
+        y = 35.2 + i * 3.25
+        if kind in ICONS:
+            items.append((g.move(ICONS[kind](), left, y - 0.8 - size / 2, size / 10), MUTED))
+        else:
+            items.append((at(text_path(kind, 2.1, 600), left, y), MUTED))
+        items.append((at(text_path(value, 2.2, 400), left + 3.5, y), CREAM))
     return items
 
 

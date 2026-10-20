@@ -4,8 +4,21 @@
   "name_en": "HONG GILDONG",
   "title": "대표",
   "contacts": [
-    ["M", "010-0000-0000"],
-    ["E", "hello@bellink.co.kr"],
-    ["A", "서울특별시 중구 OO로 00"]
+    [
+      "phone",
+      "010-0000-0000"
+    ],
+    [
+      "email",
+      "hello@bellink.co.kr"
+    ],
+    [
+      "instagram",
+      "bellink.official"
+    ],
+    [
+      "address",
+      "서울특별시 중구 OO로 00"
+    ]
   ]
 }

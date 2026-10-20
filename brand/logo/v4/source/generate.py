@@ -204,10 +204,10 @@ def normalise(p, h):
 
 
 # ---------------------------------------------------------------- wordmark ---
-def wordmark(size=100):
+def wordmark(size=100, wght=600):
     face = hb.Face(hb.Blob.from_file_path(NOTO))
     font = hb.Font(face)
-    font.set_variations({'wght': 600})
+    font.set_variations({'wght': wght})
     buf = hb.Buffer()
     buf.add_str('BELLINK')
     buf.guess_segment_properties()
