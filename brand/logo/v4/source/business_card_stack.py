@@ -26,9 +26,9 @@ LEFT, RIGHT, TOP, BOTTOM = 7.0, 7.0, 7.5, 7.5
 WM_WIDTH = 24.8                        # 워드마크 폭 (mm)
 NAME, TITLE, SMALL = 11 * PT, 7.5 * PT, 6.5 * PT
 LEAD, GAP, TITLE_GAP = 3.4, 6.2, 2.4   # 작은 글씨 줄 간격, 이름과 첫 줄 사이, 이름과 직함 사이
-# 오른쪽 아래 심볼: 종류('arch' 또는 'b'), 폭(mm), 진하기(검정의 몇 %).
-# 잘리지 않게, 오른쪽 끝은 워드마크 오른쪽 끝(오른쪽 여백)에, 바닥은 마지막 줄 기준선(아래 여백)에 맞춥니다.
-MARK_KIND, MARK_W, MARK_TONE = 'arch', 25.0, 0.05
+# 오른쪽 아래 심볼: 종류('arch' 또는 'b'), 폭(mm), 오른쪽 여백(mm), 진하기(검정의 몇 %).
+# 잘리지 않게 넣고, 바닥은 마지막 줄 기준선(아래 여백)에 맞춥니다.
+MARK_KIND, MARK_W, MARK_RIGHT, MARK_TONE = 'arch', 25.0, 4.0, 0.07
 
 
 def tone(t):
@@ -37,7 +37,7 @@ def tone(t):
     return f'#{v:02X}{v:02X}{v:02X}'
 
 
-def mark(kind=MARK_KIND, width=MARK_W, right=W - RIGHT, bottom=H - BOTTOM, t=MARK_TONE):
+def mark(kind=MARK_KIND, width=MARK_W, right=W - MARK_RIGHT, bottom=H - BOTTOM, t=MARK_TONE):
     """오른쪽 아래 심볼. right, bottom은 심볼 오른쪽 끝과 바닥의 위치(mm)입니다."""
     sym = w.arch_symbol() if kind == 'arch' else g.symbol_watermark()
     x0, y0, x1, y1 = sym.bounds
