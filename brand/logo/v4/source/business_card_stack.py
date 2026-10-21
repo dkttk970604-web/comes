@@ -5,7 +5,8 @@
 보내주신 아트보드 3·4 형식을 다듬은 안입니다.
 - 오른쪽 위: BELLINK 워드마크(명함용 굵기 680, 자간 0)
 - 왼쪽 아래: 이름(11pt)과 직함(7.5pt)을 같은 기준선에, 그 아래 연락처와 주소(6.5pt). 글씨는 Pretendard SemiBold
-- 오른쪽 아래: B 심볼(명함 워터마크용 심볼 A)을 아주 연하게. 투명도 대신 같은 밝기의 회색 단색으로 넣어 인쇄가 안정적입니다.
+- 오른쪽 아래: 심볼을 아주 연하게. 기본은 아치 심볼(BELLINK의 B를 눕혀 다리처럼 만든 모양, 색을 채운 원본 그대로),
+  'b'를 고르면 원형 B 심볼(명함 워터마크용 심볼 A). 투명도 대신 같은 밝기의 회색 단색으로 넣어 인쇄가 안정적입니다.
 - 여백: 왼쪽·오른쪽 7mm, 워드마크 윗선까지 7.5mm, 마지막 줄 기준선까지 7.5mm
 
 정보 파일을 주지 않으면 card-stack.example.json(예시 정보)으로 만듭니다.
@@ -25,8 +26,9 @@ LEFT, RIGHT, TOP, BOTTOM = 7.0, 7.0, 7.5, 7.5
 WM_WIDTH = 24.8                        # 워드마크 폭 (mm)
 NAME, TITLE, SMALL = 11 * PT, 7.5 * PT, 6.5 * PT
 LEAD, GAP, TITLE_GAP = 3.4, 6.2, 2.4   # 작은 글씨 줄 간격, 이름과 첫 줄 사이, 이름과 직함 사이
-# B 심볼: 지름, 중심(mm), 진하기(검정의 몇 %). 오른쪽 약 10%, 아래 약 6%가 잘립니다.
-MARK_D, MARK_CX, MARK_CY, MARK_TONE = 25.0, 80.0, 39.0, 0.03
+# 오른쪽 아래 심볼: 종류('arch' 또는 'b'), 폭(mm), 오른쪽·아래로 잘리는 비율, 진하기(검정의 몇 %)
+MARK_KIND, MARK_W, MARK_CROP_R, MARK_CROP_B, MARK_TONE = 'arch', 30.0, 0.10, 0.06, 0.03
+MARK_W_B = 25.0                        # 원형 B 심볼일 때의 지름(mm)
 
 
 def tone(t):
@@ -35,11 +37,15 @@ def tone(t):
     return f'#{v:02X}{v:02X}{v:02X}'
 
 
-def mark(d=MARK_D, cx=MARK_CX, cy=MARK_CY, t=MARK_TONE):
-    sym = g.symbol_watermark()
+def mark(kind=MARK_KIND, width=None, crop_r=MARK_CROP_R, crop_b=MARK_CROP_B, t=MARK_TONE):
+    """오른쪽 아래 심볼. 오른쪽 끝이 폭의 crop_r만큼, 아래 끝이 높이의 crop_b만큼 카드 밖으로 나갑니다."""
+    sym = w.arch_symbol() if kind == 'arch' else g.symbol_watermark()
+    width = width or (MARK_W if kind == 'arch' else MARK_W_B)
     x0, y0, x1, y1 = sym.bounds
-    k = d / (y1 - y0)
-    return (g.move(sym, cx - (x0 + x1) / 2 * k, cy - (y0 + y1) / 2 * k, k), tone(t))
+    k = width / (x1 - x0)
+    height = (y1 - y0) * k
+    right, bottom = W + crop_r * width, H + crop_b * height
+    return (g.move(sym, right - x1 * k, bottom - y1 * k, k), tone(t))
 
 
 def side(d, mark_item=None):
