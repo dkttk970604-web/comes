@@ -25,8 +25,8 @@ LEFT, RIGHT, TOP, BOTTOM = 7.0, 7.0, 7.5, 7.5
 WM_WIDTH = 24.8                        # 워드마크 폭 (mm)
 NAME, TITLE, SMALL = 11 * PT, 7.5 * PT, 6.5 * PT
 LEAD, GAP, TITLE_GAP = 3.4, 6.2, 2.4   # 작은 글씨 줄 간격, 이름과 첫 줄 사이, 이름과 직함 사이
-# B 심볼: 지름, 중심(mm), 진하기(검정의 몇 %). 오른쪽 약 20%, 아래 약 13%가 잘립니다.
-MARK_D, MARK_CX, MARK_CY, MARK_TONE = 30.0, 81.0, 39.0, 0.10
+# B 심볼: 지름, 중심(mm), 진하기(검정의 몇 %). 오른쪽 약 10%, 아래 약 6%가 잘립니다.
+MARK_D, MARK_CX, MARK_CY, MARK_TONE = 25.0, 80.0, 39.0, 0.10
 
 
 def tone(t):
