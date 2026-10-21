@@ -1,0 +1,10 @@
+{
+  "front": {
+    "left": ["홍길동", "대표"],
+    "right": ["010-0000-0000", "hello@bellink.co.kr", "서울특별시 중구 OO로 00"]
+  },
+  "back": {
+    "left": ["HONG GILDONG", "CEO"],
+    "right": ["+82 10 0000 0000", "hello@bellink.co.kr", "00, OO-ro, Jung-gu,", "Seoul, Republic of Korea"]
+  }
+}

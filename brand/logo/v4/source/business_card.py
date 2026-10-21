@@ -185,12 +185,12 @@ def back(info):
     return items
 
 
-def svg(items, bleed):
+def svg(items, bleed, bg=BLACK):
     b = BLEED if bleed else 0.0
     vb = f'{-b:g} {-b:g} {W + 2 * b:g} {H + 2 * b:g}'
     body = ''.join(f'<path fill="{c}" d="{g.to_d(p)}"/>' for p, c in items)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb}" width="100%" height="100%">'
-            f'<rect x="{-b - 1:g}" y="{-b - 1:g}" width="{W + 2 * b + 2:g}" height="{H + 2 * b + 2:g}" fill="{BLACK}"/>{body}</svg>')
+            f'<rect x="{-b - 1:g}" y="{-b - 1:g}" width="{W + 2 * b + 2:g}" height="{H + 2 * b + 2:g}" fill="{bg}"/>{body}</svg>')
 
 
 def fix_pdf_boxes(path):
@@ -219,31 +219,35 @@ def main():
         info = json.load(f)
     if not os.path.exists(g.NOTO):
         g.main()                          # 폰트 내려받기와 로고 파일 생성
+    render_cards({'front': front(info), 'back': back(info)}, out)
+
+
+def render_cards(sides, out, name='bellink-business-card', bg=BLACK):
+    """앞뒤 윤곽선 목록으로 인쇄용 PDF, 300dpi 앞·뒷면 PNG, 나란히 놓은 미리보기 PNG를 만듭니다."""
     os.makedirs(out, exist_ok=True)
     build = f'{HERE}/.build'
     os.makedirs(build, exist_ok=True)
-    sides = {'front': front(info), 'back': back(info)}
 
     # 인쇄용 PDF: 92 x 52 mm 두 쪽
-    pages = ''.join(f'<div class="page">{svg(sides[k], True)}</div>' for k in ('front', 'back'))
+    pages = ''.join(f'<div class="page">{svg(sides[k], True, bg)}</div>' for k in ('front', 'back'))
     with open(f'{build}/card-print.html', 'w', encoding='utf-8') as f:
         f.write('<!doctype html><html><head><meta charset="utf-8"><style>'
                 f'@page {{ size: {W + 2 * BLEED:g}mm {H + 2 * BLEED:g}mm; margin: 0; }}'
-                '* { margin: 0; } body { background: ' + BLACK + '; } .page { width: 92mm; height: 52mm; break-after: page; overflow: hidden; }'
+                '* { margin: 0; } body { background: ' + bg + '; } .page { width: 92mm; height: 52mm; break-after: page; overflow: hidden; }'
                 '.page svg { display: block; }'
                 f'</style></head><body>{pages}</body></html>')
 
     # 미리보기 PNG: 재단선 기준 90 x 50 mm, 300dpi
     px = round(W / 25.4 * 300)
     py = round(H / 25.4 * 300)
-    prev = ''.join(f'<div class="page">{svg(sides[k], False)}</div>' for k in ('front', 'back'))
+    prev = ''.join(f'<div class="page">{svg(sides[k], False, bg)}</div>' for k in ('front', 'back'))
     with open(f'{build}/card-preview.html', 'w', encoding='utf-8') as f:
         f.write('<!doctype html><html><head><meta charset="utf-8"><style>'
                 f'* {{ margin: 0; }} .page {{ width: {px}px; height: {py}px; }} .page svg {{ display: block; }}'
                 f'</style></head><body>{prev}</body></html>')
 
     # 앞뒤를 나란히 놓은 확인용 이미지
-    mock = ''.join(f'<figure><div class="card">{svg(sides[k], False)}</div><figcaption>{t}</figcaption></figure>'
+    mock = ''.join(f'<figure><div class="card">{svg(sides[k], False, bg)}</div><figcaption>{t}</figcaption></figure>'
                    for k, t in (('front', 'FRONT'), ('back', 'BACK')))
     with open(f'{build}/card-mockup.html', 'w', encoding='utf-8') as f:
         f.write('<!doctype html><html><head><meta charset="utf-8"><style>'
@@ -254,17 +258,17 @@ def main():
                 f'</style></head><body>{mock}</body></html>')
 
     jobs = [
-        {'html': f'{build}/card-print.html', 'w': 348, 'h': 197, 'pdf': f'{out}/bellink-business-card-print.pdf',
+        {'html': f'{build}/card-print.html', 'w': 348, 'h': 197, 'pdf': f'{out}/{name}-print.pdf',
          'pdfw': f'{W + 2 * BLEED:g}mm', 'pdfh': f'{H + 2 * BLEED:g}mm'},
         {'html': f'{build}/card-preview.html', 'w': px, 'h': py, 'pages': f'{build}/side-%02d.png'},
-        {'html': f'{build}/card-mockup.html', 'w': 1500, 'h': 400, 'full': True, 'out': f'{out}/bellink-business-card-preview.png'},
+        {'html': f'{build}/card-mockup.html', 'w': 1500, 'h': 400, 'full': True, 'out': f'{out}/{name}-preview.png'},
     ]
     with open(f'{build}/card-jobs.json', 'w') as f:
         json.dump(jobs, f)
     subprocess.run(['node', f'{HERE}/render.js', f'{build}/card-jobs.json'], check=True)
-    fix_pdf_boxes(f'{out}/bellink-business-card-print.pdf')
-    os.replace(f'{build}/side-01.png', f'{out}/bellink-business-card-front.png')
-    os.replace(f'{build}/side-02.png', f'{out}/bellink-business-card-back.png')
+    fix_pdf_boxes(f'{out}/{name}-print.pdf')
+    os.replace(f'{build}/side-01.png', f'{out}/{name}-front.png')
+    os.replace(f'{build}/side-02.png', f'{out}/{name}-back.png')
     print(out)
 
 

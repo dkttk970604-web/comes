@@ -6,6 +6,23 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 명함 흰색판 (보내주신 일러스트레이터 시안 기준)
+
+![명함 흰색판](business-card-white/bellink-business-card-white-preview.png)
+
+보내주신 일러스트레이터 명함 화면을 픽셀 단위로 재서 글씨체, 크기, 위치를 그대로 옮기고 정보만 바꿨습니다.
+
+- 글씨: Pretendard SemiBold. 왼쪽 위 이름·직함은 앞면 8pt, 뒷면 7.5pt. 오른쪽 위 연락처·주소는 6.5pt.
+- 앞면에는 한국어, 뒷면에는 영어 정보를 넣습니다. 두 덩어리의 첫 줄 기준선을 맞춥니다.
+- 아래: 왼쪽 BELLINK 워드마크(명함용 굵기 680, 자간 0), 오른쪽 아치 심볼. 워드마크 기준선과 심볼 바닥을 맞춥니다. 심볼은 화면에서 모양을 재어 다시 그렸습니다(폭 39 : 높이 24, 위 모서리 반지름 8, 아치 폭 16, 아치 높이 15).
+- 원본은 주소가 뒷면에만 있었는데, 이제 앞면에도 주소가 들어가서 앞면 연락처도 원본 뒷면 주소와 같은 자리·크기(6.5pt)로 맞췄습니다.
+
+여기 있는 파일은 예시 정보(홍길동)로 만든 것입니다. 실제 정보로 만들려면 `source/card-white.example.json`을 복사해 `source/card-white.json`(커밋되지 않음)으로 고친 뒤 실행합니다.
+
+```bash
+python3 brand/logo/v4/source/business_card_white.py brand/logo/v4/source/card-white.json 출력폴더
+```
+
 ## 심볼 파일 (명함 워터마크용)
 
 ![심볼 파일](symbol/bellink-symbol-watermark-preview.png)
