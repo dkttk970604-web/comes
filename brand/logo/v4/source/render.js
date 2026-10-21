@@ -1,6 +1,6 @@
 // generate.py가 만든 작업 목록(JSON)을 Chromium으로 렌더링합니다.
 // job: {html, out?, w, h, transparent?, full?, pdf?, pages?}
-//   out   : 화면 캡처 PNG
+//   out   : 화면 캡처 (확장자가 .jpg면 JPEG, quality로 화질 지정)
 //   pdf   : 페이지(.page 요소)마다 w x h 크기의 PDF (pdfw, pdfh로 '92mm'처럼 크기를 따로 줄 수 있음)
 //   pages : .page 요소를 하나씩 PNG로 저장 (printf 형식 경로, 예: page-%02d.png)
 const path = require('path');
@@ -16,7 +16,7 @@ try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require(
     await page.goto('file://' + path.resolve(j.html));
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(100);
-    if (j.out) await page.screenshot({ path: j.out, fullPage: !!j.full, omitBackground: !!j.transparent });
+    if (j.out) await page.screenshot({ path: j.out, fullPage: !!j.full, omitBackground: !!j.transparent, ...(j.quality ? { quality: j.quality } : {}) });
     if (j.pages) {
       const els = await page.$$('.page');
       for (let i = 0; i < els.length; i++) {

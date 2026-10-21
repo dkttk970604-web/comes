@@ -2,7 +2,8 @@
 
     python3 brand/logo/v4/source/export_symbol.py
 
-brand/logo/v4/symbol/ 에 색상별 SVG, 투명 배경 PNG(2000px), 인쇄용 PDF(높이 100mm)를 만듭니다.
+brand/logo/v4/symbol/ 에 색상별 SVG, 투명 배경 PNG(2000px), 인쇄용 PDF(높이 100mm)를,
+symbol/share/ 에 휴대폰·카카오톡 공유용 배경 있는 JPG(2000px)를 만듭니다.
 """
 import json
 import os
@@ -23,6 +24,15 @@ VARIANTS = [
 ]
 PNG_H = 2000
 PDF_H_MM = 100.0
+
+# 휴대폰·카카오톡 공유용: 배경을 깐 정사각형 JPG (투명 배경은 메신저에서 검게 또는 하얗게 보일 수 있어서)
+SHARE = [
+    ('black-on-white', 'black', '#FFFFFF'),
+    ('black-on-cream', 'black', g.CREAM),
+    ('cream-on-black', 'cream', g.BLACK),
+    ('gray-on-black', 'gray', g.BLACK),
+]
+SHARE_PX, SHARE_SYM = 2000, 1200
 
 
 def main():
@@ -51,6 +61,13 @@ def main():
                         f'<body><img src="file://{OUT}/{name}.svg" style="display:block;width:{wmm:.3f}mm;height:{PDF_H_MM:g}mm"></body></html>')
             jobs.append({'html': phtml, 'w': pw, 'h': PNG_H, 'pdf': f'{OUT}/{name}.pdf',
                          'pdfw': f'{wmm:.3f}mm', 'pdfh': f'{PDF_H_MM:g}mm'})
+    os.makedirs(f'{OUT}/share', exist_ok=True)
+    for name, src, bg in SHARE:
+        html = f'{build}/share-{name}.html'
+        with open(html, 'w') as f:
+            f.write(f'<html><body style="margin:0;width:{SHARE_PX}px;height:{SHARE_PX}px;background:{bg};display:flex;align-items:center;justify-content:center">'
+                    f'<img src="file://{OUT}/bellink-symbol-watermark-{src}.svg" style="width:{SHARE_SYM}px;height:{SHARE_SYM}px"></body></html>')
+        jobs.append({'html': html, 'out': f'{OUT}/share/bellink-symbol-{name}.jpg', 'w': SHARE_PX, 'h': SHARE_PX, 'quality': 95})
     with open(f'{build}/symbol-jobs.json', 'w') as f:
         json.dump(jobs, f)
     subprocess.run(['node', f'{g.HERE}/render.js', f'{build}/symbol-jobs.json'], check=True)
