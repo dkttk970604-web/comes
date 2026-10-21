@@ -6,6 +6,22 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 명함 흰색 세로 쌓기판 (아트보드 3·4 형식)
+
+![명함 흰색 세로 쌓기판](business-card-stack/bellink-business-card-stack-preview.png)
+
+보내주신 아트보드 3·4 형식을 다듬은 안입니다.
+
+- 오른쪽 위 BELLINK 워드마크, 왼쪽 아래 이름(11pt)과 직함(7.5pt), 그 아래 연락처·주소(6.5pt). 글씨는 Pretendard SemiBold.
+- 원본보다 연락처·주소 글씨를 키우고(약 5.4pt → 6.5pt), 앞뒤 여백(왼쪽·오른쪽 7mm, 위·아래 7.5mm)과 이름·직함 기준선을 맞췄습니다.
+- 오른쪽 아래 B 심볼(명함 워터마크용 심볼 A): 지름 30mm, 오른쪽·아래가 조금 잘리게, 진하기 10%(`#E6E6E6` 단색).
+
+예시 정보(홍길동)로 만든 파일입니다. 실제 정보로 만들려면 `source/card-stack.example.json`을 복사해 `source/card-stack.json`(커밋되지 않음)으로 고친 뒤 실행합니다.
+
+```bash
+python3 brand/logo/v4/source/business_card_stack.py brand/logo/v4/source/card-stack.json 출력폴더
+```
+
 ## 명함 흰색판 (보내주신 일러스트레이터 시안 기준)
 
 ![명함 흰색판](business-card-white/bellink-business-card-white-preview.png)

@@ -3,3 +3,4 @@ fonts/
 __pycache__/
 card-info.json
 card-white.json
+card-stack.json
