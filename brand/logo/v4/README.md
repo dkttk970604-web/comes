@@ -6,6 +6,26 @@
 
 심볼을 일곱 가지로 더 풀어 본 비교: [bellink-v4-symbol-variations.png](bellink-v4-symbol-variations.png)
 
+## 심볼 파일 (명함 워터마크용)
+
+![심볼 파일](symbol/bellink-symbol-watermark-preview.png)
+
+명함 뒷면에 쓴 심볼(심볼 A, 1.5배 굵기)을 따로 뽑은 파일입니다. `symbol/` 폴더에 색상별로 있습니다.
+
+| 이름 끝 | 색 | 쓰임 |
+|---|---|---|
+| `-black` | `#10100E` | 밝은 바탕 |
+| `-cream` | `#FFFFE5` | 어두운 바탕 |
+| `-gray` | `#88887A` (단색) | 명함 뒷면과 같은 색. 검정 바탕 인쇄물 |
+| `-cream-50` | 크림 50% 반투명 | 어두운 사진·영상 위 워터마크 |
+| `-black-50` | 검정 50% 반투명 | 밝은 사진·영상 위 워터마크 |
+
+- SVG: 원본 벡터. 크기를 얼마든지 키울 수 있습니다.
+- PNG: 배경 투명, 2000 × 2000px.
+- PDF: 인쇄·디자인 프로그램용 벡터, 100 × 100mm (black, cream).
+
+다시 만들기: `python3 brand/logo/v4/source/export_symbol.py`
+
 ## 명함 (앞뒤)
 
 ![명함 앞뒤](business-card/bellink-business-card-preview.png)

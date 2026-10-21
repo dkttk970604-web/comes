@@ -134,6 +134,16 @@ def symbol_a(q_deg=160.0):
     return union(stroke(p, STROKE), b_letter())
 
 
+def symbol_watermark():
+    """명함 뒷면 워터마크에 쓴 심볼: 심볼 A를 1.5배 굵기로."""
+    global STROKE
+    old, STROKE = STROKE, STROKE * 1.5
+    try:
+        return symbol_a()
+    finally:
+        STROKE = old
+
+
 def _stroke_round(p, w):
     q = pathops.Path(p)
     q.stroke(w, LineCap.ROUND_CAP, LineJoin.ROUND_JOIN, 4)
@@ -240,12 +250,13 @@ def lockup_vertical(sym, ratio=2.7, gap=0.55):
 
 
 # ------------------------------------------------------------------ output ---
-def svg_doc(paths, fill, bg=None):
+def svg_doc(paths, fill, bg=None, opacity=None):
     b = union(*paths).bounds
     w, h = b[2] - b[0], b[3] - b[1]
     n = lambda v: f'{v:.2f}'.rstrip('0').rstrip('.')
     rect = f'<rect x="{n(b[0])}" y="{n(b[1])}" width="{n(w)}" height="{n(h)}" fill="{bg}"/>' if bg else ''
-    body = ''.join(f'<path fill="{fill}" d="{to_d(p)}"/>' for p in paths)
+    op = f' fill-opacity="{opacity:g}"' if opacity is not None else ''
+    body = ''.join(f'<path fill="{fill}"{op} d="{to_d(p)}"/>' for p in paths)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{n(b[0])} {n(b[1])} {n(w)} {n(h)}" width="{n(w)}" height="{n(h)}" '
             f'role="img" aria-label="BELLINK"><title>BELLINK</title>{rect}{body}</svg>\n'), w, h
 

@@ -155,9 +155,7 @@ def front(info):
 
 def back(info):
     items = []
-    old, g.STROKE = g.STROKE, 21.75
-    sym = g.symbol_a()
-    g.STROKE = old
+    sym = g.symbol_watermark()
     x0, y0, x1, y1 = sym.bounds
     k = WATER_D / (y1 - y0)
     items.append((g.move(sym, WATER_CX - (x0 + x1) / 2 * k, WATER_CY - (y0 + y1) / 2 * k, k), WATER))
