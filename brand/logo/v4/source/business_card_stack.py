@@ -5,6 +5,7 @@
 보내주신 아트보드 3·4 형식을 다듬은 안입니다.
 - 오른쪽 위: BELLINK 워드마크(명함용 굵기 680, 자간 0)
 - 왼쪽 아래: 이름(11pt)과 직함(7.5pt)을 같은 기준선에, 그 아래 연락처와 주소(6.5pt). 글씨는 Pretendard SemiBold
+  이름 윗선은 오른쪽 아래 심볼 윗선에, 마지막 줄은 아래 여백에 맞춥니다.
 - 오른쪽 아래: 심볼을 아주 연하게. 기본은 원형 B 심볼(B와 원이 한 선으로 이어진 모양, best + link),
   'arch'를 고르면 아치 심볼(B를 눕혀 다리처럼 만든 모양). 투명도 대신 같은 밝기의 회색 단색으로 넣어 인쇄가 안정적입니다.
 - 여백: 왼쪽·오른쪽 7mm, 워드마크 윗선까지 7.5mm, 마지막 줄 기준선까지 7.5mm
@@ -55,8 +56,13 @@ def side(d, mark_item=None):
     n = len(d['lines'])
     for i, line in enumerate(d['lines']):
         items.append((bc.at(w.pret_path(line, SMALL), LEFT, last - (n - 1 - i) * LEAD), w.INK))
-    base = last - (n - 1) * LEAD - GAP
     name = w.pret_path(d['name'], NAME)
+    sym = items[0][0]
+    if sym.bounds[3] > sym.bounds[1]:
+        # 이름 윗선을 심볼 윗선에 맞춥니다(원은 그만큼 위로 넘어가 있으므로 OVERSHOOT만큼 내림). 앞뒤 이름 높이가 같아집니다.
+        base = sym.bounds[1] + OVERSHOOT - name.bounds[1]
+    else:
+        base = last - (n - 1) * LEAD - GAP
     items.append((bc.at(name, LEFT, base), w.INK))
     items.append((bc.at(w.pret_path(d['title'], TITLE), LEFT + bc.ink_width(name) + TITLE_GAP, base), w.INK))
     return items
