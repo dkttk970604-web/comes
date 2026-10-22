@@ -4,8 +4,8 @@
 
 보내주신 아트보드 3·4 형식을 다듬은 안입니다.
 - 오른쪽 위: BELLINK 워드마크(명함용 굵기 680, 자간 0)
-- 왼쪽 아래: 이름(11pt)과 직함(7.5pt)을 같은 기준선에, 그 아래 연락처와 주소(6.5pt). 글씨는 Pretendard SemiBold
-  이름 윗선은 오른쪽 아래 심볼 윗선에, 마지막 줄은 아래 여백에 맞춥니다.
+- 왼쪽 아래: 이름(11pt)과 직함(7.5pt)을 같은 기준선에, 그 아래 아이콘을 붙인 연락처와 주소(6.5pt). 글씨는 Pretendard SemiBold
+  이름 윗선은 오른쪽 아래 심볼 윗선에, 마지막 줄은 심볼 바닥(아래 여백)에 맞춰, 정보 덩어리가 심볼 높이 안에 들어갑니다.
 - 오른쪽 아래: 심볼을 아주 연하게. 기본은 원형 B 심볼(B와 원이 한 선으로 이어진 모양, best + link),
   'arch'를 고르면 아치 심볼(B를 눕혀 다리처럼 만든 모양). 투명도 대신 같은 밝기의 회색 단색으로 넣어 인쇄가 안정적입니다.
 - 여백: 왼쪽·오른쪽 7mm, 워드마크 윗선까지 7.5mm, 마지막 줄 기준선까지 7.5mm
@@ -29,7 +29,9 @@ NAME, TITLE, SMALL = 11 * PT, 7.5 * PT, 6.5 * PT
 LEAD, GAP, TITLE_GAP = 3.4, 6.2, 2.4   # 작은 글씨 줄 간격, 이름과 첫 줄 사이, 이름과 직함 사이
 # 오른쪽 아래 심볼: 종류('b' 또는 'arch'), 폭(mm), 진하기(검정의 몇 %). 잘리지 않게, 오른쪽 끝은 워드마크
 # 오른쪽 끝에, 바닥은 마지막 줄 기준선에 맞춥니다. 원은 직선에 딱 맞추면 안쪽으로 들어가 보여 조금 넘깁니다.
-MARK_KIND, MARK_W, MARK_TONE, OVERSHOOT = 'b', 18.0, 0.07, 0.3
+MARK_KIND, MARK_W, MARK_TONE, OVERSHOOT = 'b', 17.0, 0.07, 0.3
+# 연락처 줄: 아이콘 크기, 아이콘 왼쪽 끝에서 글자까지, 한 줄에 두 항목일 때 사이 간격 (mm)
+ICON, ICON_TEXT, ITEM_GAP = 2.0, 3.2, 4.0
 
 
 def tone(t):
@@ -46,6 +48,18 @@ def mark(kind=MARK_KIND, width=MARK_W, right=W - RIGHT + OVERSHOOT, bottom=H - B
     return (g.move(sym, right - x1 * k, bottom - y1 * k, k), tone(t))
 
 
+def contact_line(line, y):
+    """[아이콘, 글자, 아이콘, 글자, ...] 한 줄. 아이콘은 phone·email·address·instagram, 빈 문자열이면 아이콘 없이 들여 씁니다."""
+    out, x = [], LEFT
+    for kind, text in zip(line[::2], line[1::2]):
+        if kind:
+            out.append((g.move(bc.ICONS[kind](), x, y - 0.8 - ICON / 2, ICON / 10), w.INK))
+        p = w.pret_path(text, SMALL)
+        out.append((bc.at(p, x + ICON_TEXT, y), w.INK))
+        x += ICON_TEXT + bc.ink_width(p) + ITEM_GAP
+    return out
+
+
 def side(d, mark_item=None):
     items = [mark_item or mark()]
     wm = g.wordmark(wght=bc.WM_WGHT, tracking=bc.WM_TRACK)
@@ -55,7 +69,7 @@ def side(d, mark_item=None):
     last = H - BOTTOM
     n = len(d['lines'])
     for i, line in enumerate(d['lines']):
-        items.append((bc.at(w.pret_path(line, SMALL), LEFT, last - (n - 1 - i) * LEAD), w.INK))
+        items += contact_line(line, last - (n - 1 - i) * LEAD)
     name = w.pret_path(d['name'], NAME)
     sym = items[0][0]
     if sym.bounds[3] > sym.bounds[1]:

@@ -3,18 +3,38 @@
     "name": "홍길동",
     "title": "대표",
     "lines": [
-      "M  010-0000-0000",
-      "E  hello@bellink.co.kr",
-      "서울특별시 중구 OO로 00"
+      [
+        "phone",
+        "010-0000-0000"
+      ],
+      [
+        "email",
+        "hello@bellink.co.kr"
+      ],
+      [
+        "address",
+        "서울특별시 중구 OO로 00"
+      ]
     ]
   },
   "back": {
     "name": "Hong Gildong",
     "title": "CEO",
     "lines": [
-      "M  +82 10 0000 0000     E  hello@bellink.co.kr",
-      "00, OO-ro, Jung-gu,",
-      "Seoul, Republic of Korea"
+      [
+        "phone",
+        "+82 10 0000 0000",
+        "email",
+        "hello@bellink.co.kr"
+      ],
+      [
+        "address",
+        "00, OO-ro, Jung-gu,"
+      ],
+      [
+        "",
+        "Seoul, Republic of Korea"
+      ]
     ]
   }
 }
