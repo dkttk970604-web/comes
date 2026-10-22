@@ -29,7 +29,7 @@ NAME, TITLE, SMALL = 11 * PT, 7.5 * PT, 6.5 * PT
 LEAD, GAP, TITLE_GAP = 3.4, 6.2, 2.4   # 작은 글씨 줄 간격, 이름과 첫 줄 사이, 이름과 직함 사이
 # 오른쪽 아래 심볼: 종류('b' 또는 'arch'), 폭(mm), 진하기(검정의 몇 %). 잘리지 않게, 오른쪽 끝은 워드마크
 # 오른쪽 끝에, 바닥은 마지막 줄 기준선에 맞춥니다. 원은 직선에 딱 맞추면 안쪽으로 들어가 보여 조금 넘깁니다.
-MARK_KIND, MARK_W, MARK_TONE, OVERSHOOT = 'b', 17.0, 0.07, 0.3
+MARK_KIND, MARK_W, MARK_TONE, OVERSHOOT = 'b', 16.0, 0.07, 0.3
 # 연락처 줄: 아이콘 크기, 아이콘 왼쪽 끝에서 글자까지, 한 줄에 두 항목일 때 사이 간격 (mm)
 ICON, ICON_TEXT, ITEM_GAP = 2.0, 3.2, 4.0
 
