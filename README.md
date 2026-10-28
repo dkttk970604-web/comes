@@ -25,4 +25,4 @@
 | [BON Appetit 본사 회신 초안](docs/BON_Appetit_본사_회신_초안.md) | 본사 1차 의견(위치·예산·지원사업·매출 예측·1단계 축소안)에 대한 영문 회신과 번역 |
 | [신당 신중앙시장 레드팀 검토](docs/신당_신중앙시장_레드팀_검토.md) | 신당 10평 점포안에 대한 레드팀 5팀 2라운드 검토 결과 |
 | [신당 1호점 사업성 분석 (내부용)](docs/신당_사업성분석.md) | 실내 주방 + 야장 배치 기준 투자비, 고정비, 손익분기, 시나리오별 영업이익 |
-| [신당 1호점 계획서 (영문 PDF)](docs/BON_Appetit_Korea_Store1_Sindang_Plan_EN_v2.pdf) · [한국어 PDF](docs/BON_Appetit_한국1호점_신당_사업계획서_KO_v2.pdf) | 본사 송부용 신당 1호점(시험 매장 성격) 사업계획서 |
+| [신당 1호점 계획서 (영문 PDF)](docs/BON_Appetit_Korea_Store1_Sindang_Plan_EN_v3.pdf) · [한국어 PDF](docs/BON_Appetit_한국1호점_신당_사업계획서_KO_v3.pdf) | 본사 송부용 신당 1호점(시험 매장 성격) 사업계획서 |
